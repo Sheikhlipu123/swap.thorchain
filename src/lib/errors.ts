@@ -19,6 +19,9 @@ export const translateError = (message: string): string => {
   // The aggregator could not fund the deposit from the wallet's UTXOs (amount + network fee).
   if (message.includes('toolbox_utxo_insufficient_balance')) return 'Insufficient balance to cover the network fee'
 
+  // The UTXO data providers (Blockchair, then Esplora for BTC/LTC) could not be reached.
+  if (message.includes('toolbox_utxo_api_error')) return 'Could not load wallet UTXOs. Try again shortly'
+
   if (message.includes('swap Source and Target cannot be the same')) return 'Source and Target cannot be the same'
 
   if (message.includes('user rejected action')) return 'Transaction Cancelled'
