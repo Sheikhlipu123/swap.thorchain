@@ -166,9 +166,29 @@ export const useSwapRates = () => {
   const identifiers = [assetFrom?.identifier, assetTo?.identifier].filter(Boolean).sort() as string[]
   const { quote } = useQuote()
   const { rates } = useRates(identifiers, quote?.providers[0])
+  const houdiniRates = useHoudiniQuoteRates()
 
   return {
-    rateFrom: assetFrom && rates[assetFrom.identifier],
-    rateTo: assetTo && rates[assetTo.identifier]
+    rateFrom: assetFrom && (rates[assetFrom.identifier] ?? houdiniRates.rateFrom),
+    rateTo: assetTo && (rates[assetTo.identifier] ?? houdiniRates.rateTo)
   }
+}
+
+// Houdini lists assets no THORChain/Maya pool prices (NEAR, TON, …); its quote carries USD values of
+// its own. `amountOutUsd` prices the payout, and on a private send the sell side is the same asset.
+export const useHoudiniQuoteRates = (): { rateFrom?: USwapNumber; rateTo?: USwapNumber } => {
+  const assetFrom = useAssetFrom()
+  const assetTo = useAssetTo()
+  const { quote } = useQuote()
+  const houdini = quote?.meta?.houdini
+  if (!houdini || quote.sellAsset !== assetFrom?.identifier || quote.buyAsset !== assetTo?.identifier) return {}
+
+  const perUnit = (usd: number | undefined, amount: string) => {
+    const units = new USwapNumber(amount)
+    return usd && units.gt(0) ? new USwapNumber(usd).div(units) : undefined
+  }
+  const rateTo = perUnit(houdini.amountOutUsd, quote.expectedBuyAmount)
+  const rateFrom = perUnit(houdini.amountInUsd, quote.sellAmount) ?? (quote.sellAsset === quote.buyAsset ? rateTo : undefined)
+
+  return { rateFrom, rateTo }
 }

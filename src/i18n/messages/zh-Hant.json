@@ -59,6 +59,8 @@
     "input": {
       "sell": "賣出",
       "buy": "買入",
+      "send": "發送",
+      "recipientGets": "收款人獲得",
       "clear": "清除"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "輸入限價",
       "enterLimitOrder": "輸入限價訂單",
       "swap": "兌換",
+      "send": "發送",
       "connectWallet": "連接{chain}錢包",
       "insufficientBalance": "餘額不足",
       "approve": "授權{ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "確認限價訂單",
       "titleSwap": "確認兌換",
+      "titlePrivateSend": "確認私密發送",
       "notAvailable": "n/a",
       "swapArrowLabel": "兌換",
+      "sendArrowLabel": "發送",
       "chainAddress": "{chain}地址",
       "sourceAddressTooltip": "為本次兌換發送資金的錢包地址。",
+      "sourceAddressTooltipSend": "發送資金的錢包地址。",
       "destinationAddressTooltip": "將接收兌換後資金的錢包地址。",
+      "destinationAddressTooltipSend": "將接收資金的錢包地址，與發送錢包之間沒有鏈上關聯。",
       "refundAddress": "退款地址",
       "refundAddressTooltip": "若兌換無法完成，資金將退回至此地址。",
+      "refundAddressTooltipSend": "若無法完成發送，資金將退回至此地址。",
       "limitPrice": "限價",
       "limitPriceTooltip": "您的限價訂單將以此單價執行。訂單僅在市場達到該價格時成交。",
       "targetAmount": "目標金額",
@@ -279,8 +287,13 @@
       "save": "儲存"
     },
     "private": {
-      "disclaimer": "Private Swap 由 Houdini Swap 提供技術支援。<link>了解更多</link>。",
-      "acknowledge": "我接受<link>服務條款</link>。"
+      "modeSwap": "Swap",
+      "modeSend": "發送",
+      "modeSwapHint": "私密兌換成其他資產",
+      "modeSendHint": "私密轉入其他錢包",
+      "disclaimer": "Private Swap 由 <link>Houdini Swap</link> 提供技術支援",
+      "disclaimerSend": "Private Send 由 <link>Houdini Swap</link> 提供技術支援",
+      "acknowledge": "我接受<link>服務條款</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "存入{ticker}",
       "send": "發送{ticker}",
+      "privateRoute": "以私密方式轉送 {ticker}",
       "swap": "將{from}兌換為{to}"
     }
   }

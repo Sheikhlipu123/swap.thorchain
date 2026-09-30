@@ -59,6 +59,8 @@
     "input": {
       "sell": "بيع",
       "buy": "شراء",
+      "send": "إرسال",
+      "recipientGets": "المستلم هياخد",
       "clear": "مسح"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "اكتب السعر المحدد",
       "enterLimitOrder": "اكتب الأمر المحدد",
       "swap": "تبديل",
+      "send": "إرسال",
       "connectWallet": "ربط محفظة {chain}",
       "insufficientBalance": "الرصيد غير كافٍ",
       "approve": "الموافقة على {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "تأكيد الأمر المحدد",
       "titleSwap": "تأكيد التبديل",
+      "titlePrivateSend": "أكّد الإرسال الخاص",
       "notAvailable": "n/a",
       "swapArrowLabel": "تبديل",
+      "sendArrowLabel": "إرسال",
       "chainAddress": "عنوان {chain}",
       "sourceAddressTooltip": "عنوان المحفظة اللي بيبعت الأموال للتبديل ده.",
+      "sourceAddressTooltipSend": "عنوان المحفظة اللي هتبعت الفلوس.",
       "destinationAddressTooltip": "عنوان المحفظة اللي هيستلم الأموال المُبدّلة.",
+      "destinationAddressTooltipSend": "عنوان المحفظة اللي هتستلم الفلوس، من غير أي ربط على السلسلة بالمحفظة اللي بتبعت.",
       "refundAddress": "عنوان الاسترداد",
       "refundAddressTooltip": "العنوان اللي هترجع ليه الأموال لو التبديل ما اتمش.",
+      "refundAddressTooltipSend": "العنوان اللي هترجعله الفلوس لو الإرسال ما قدرش يتم.",
       "limitPrice": "السعر المحدد",
       "limitPriceTooltip": "السعر للوحدة اللي هينفّذ عنده الأمر المحدد بتاعك. الأمر هيتنفّذ بس لما السوق يوصل للسعر ده.",
       "targetAmount": "المبلغ المستهدف",
@@ -279,8 +287,13 @@
       "save": "حفظ"
     },
     "private": {
-      "disclaimer": "الـ Private Swap شغّال بواسطة Houdini Swap. <link>اقرا كمان</link>.",
-      "acknowledge": "أنا موافق على <link>شروط الخدمة</link>."
+      "modeSwap": "Swap",
+      "modeSend": "إرسال",
+      "modeSwapHint": "لأصل تاني، بسرية",
+      "modeSendHint": "لمحفظة تانية، بسرية",
+      "disclaimer": "التبديل الخاص شغال بـ <link>Houdini Swap</link>",
+      "disclaimerSend": "الإرسال الخاص شغال بـ <link>Houdini Swap</link>",
+      "acknowledge": "أنا موافق على <link>شروط الخدمة</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "إيداع {ticker}",
       "send": "إرسال {ticker}",
+      "privateRoute": "وجّه {ticker} بشكل خاص",
       "swap": "تبديل {from} إلى {to}"
     }
   }

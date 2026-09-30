@@ -59,6 +59,8 @@
     "input": {
       "sell": "ขาย",
       "buy": "ซื้อ",
+      "send": "ส่ง",
+      "recipientGets": "ผู้รับจะได้รับ",
       "clear": "ล้าง"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "กรอกราคา Limit",
       "enterLimitOrder": "กรอกคำสั่ง Limit",
       "swap": "แลกเปลี่ยน",
+      "send": "ส่ง",
       "connectWallet": "เชื่อมต่อกระเป๋าเงิน {chain}",
       "insufficientBalance": "ยอดคงเหลือไม่เพียงพอ",
       "approve": "อนุมัติ {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "ยืนยันคำสั่ง Limit",
       "titleSwap": "ยืนยันการแลกเปลี่ยน",
+      "titlePrivateSend": "ยืนยันการส่งแบบส่วนตัว",
       "notAvailable": "n/a",
       "swapArrowLabel": "แลกเปลี่ยน",
+      "sendArrowLabel": "ส่ง",
       "chainAddress": "ที่อยู่ {chain}",
       "sourceAddressTooltip": "ที่อยู่กระเป๋าเงินที่ส่งเงินทุนสำหรับการแลกเปลี่ยนนี้",
+      "sourceAddressTooltipSend": "ที่อยู่กระเป๋าเงินที่ส่งเงิน",
       "destinationAddressTooltip": "ที่อยู่กระเป๋าเงินที่จะได้รับเงินทุนที่แลกเปลี่ยนแล้ว",
+      "destinationAddressTooltipSend": "ที่อยู่กระเป๋าเงินที่จะได้รับเงิน โดยไม่มีการเชื่อมโยงบนเชนกับกระเป๋าเงินที่ส่ง",
       "refundAddress": "ที่อยู่สำหรับการคืนเงิน",
       "refundAddressTooltip": "ที่อยู่ที่เงินทุนจะถูกส่งคืนหากไม่สามารถดำเนินการแลกเปลี่ยนได้",
+      "refundAddressTooltipSend": "ที่อยู่ที่จะคืนเงินให้หากไม่สามารถส่งได้สำเร็จ",
       "limitPrice": "ราคา Limit",
       "limitPriceTooltip": "ราคาต่อหน่วยที่คำสั่ง Limit ของคุณจะถูกดำเนินการ คำสั่งจะถูกเติมเต็มก็ต่อเมื่อตลาดถึงราคานี้",
       "targetAmount": "จำนวนเป้าหมาย",
@@ -279,7 +287,12 @@
       "save": "บันทึก"
     },
     "private": {
-      "disclaimer": "Private Swap ขับเคลื่อนโดย Houdini Swap <link>อ่านเพิ่มเติม</link>",
+      "modeSwap": "Swap",
+      "modeSend": "ส่ง",
+      "modeSwapHint": "เป็นสินทรัพย์อื่นแบบส่วนตัว",
+      "modeSendHint": "ไปยังกระเป๋าอื่นแบบส่วนตัว",
+      "disclaimer": "Private Swap ขับเคลื่อนโดย <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send ขับเคลื่อนโดย <link>Houdini Swap</link>",
       "acknowledge": "ฉันยอมรับ<link>ข้อกำหนดในการให้บริการ</link>"
     }
   },
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "ฝาก {ticker}",
       "send": "ส่ง {ticker}",
+      "privateRoute": "กำหนดเส้นทาง {ticker} แบบส่วนตัว",
       "swap": "แลกเปลี่ยน {from} เป็น {to}"
     }
   }

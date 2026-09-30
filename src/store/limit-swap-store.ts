@@ -14,12 +14,15 @@ interface LimitSwapState {
   // exclusive: turning either on turns the other off, whichever code path flips it - the
   // replacement-order flow sets limit directly, and must not leave a private quote under it.
   isPrivateSwap: boolean
+  // The PRIVATE tab's Send mode; kept across tab switches, only read while the tab is on.
+  isPrivateSend: boolean
   limitSwapBuyAmount?: string
   limitSwapExpiry: number
   pendingLimitOrder?: PendingLimitOrder
 
   setIsLimitSwap: (isLimit: boolean) => void
   setIsPrivateSwap: (isPrivate: boolean) => void
+  setIsPrivateSend: (isSend: boolean) => void
   setLimitSwapBuyAmount: (amount?: string) => void
   setLimitSwapExpiry: (expiry: number) => void
   setPendingLimitOrder: (order?: PendingLimitOrder) => void
@@ -28,12 +31,14 @@ interface LimitSwapState {
 export const useLimitSwapStore = create<LimitSwapState>()(set => ({
   isLimitSwap: false,
   isPrivateSwap: false,
+  isPrivateSend: false,
   limitSwapBuyAmount: undefined,
   limitSwapExpiry: 0,
   pendingLimitOrder: undefined,
 
   setIsLimitSwap: isLimit => set(state => ({ isLimitSwap: isLimit, isPrivateSwap: isLimit ? false : state.isPrivateSwap })),
   setIsPrivateSwap: isPrivate => set(state => ({ isPrivateSwap: isPrivate, isLimitSwap: isPrivate ? false : state.isLimitSwap })),
+  setIsPrivateSend: isSend => set({ isPrivateSend: isSend }),
   setLimitSwapBuyAmount: amount => set({ limitSwapBuyAmount: amount }),
   setLimitSwapExpiry: expiry => set({ limitSwapExpiry: expiry }),
   setPendingLimitOrder: order => set({ pendingLimitOrder: order })
@@ -44,6 +49,10 @@ export const useSetIsLimitSwap = () => useLimitSwapStore(state => state.setIsLim
 
 export const useIsPrivateSwap = () => useLimitSwapStore(state => state.isPrivateSwap)
 export const useSetIsPrivateSwap = () => useLimitSwapStore(state => state.setIsPrivateSwap)
+
+export const isPrivateSendMode = (state: LimitSwapState) => state.isPrivateSwap && state.isPrivateSend
+export const useIsPrivateSend = () => useLimitSwapStore(isPrivateSendMode)
+export const useSetIsPrivateSend = () => useLimitSwapStore(state => state.setIsPrivateSend)
 
 export const useLimitSwapBuyAmount = () => useLimitSwapStore(state => state.limitSwapBuyAmount)
 export const useSetLimitSwapBuyAmount = () => useLimitSwapStore(state => state.setLimitSwapBuyAmount)

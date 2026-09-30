@@ -59,6 +59,8 @@
     "input": {
       "sell": "ᛊᛖᛚᛚ",
       "buy": "ᛒᚢᛁ",
+      "send": "ᛊᛖᚾᛞ",
+      "recipientGets": "ᚱᛖᚲᛁᛈᛁᛖᚾᛏ ᚷᛖᛏᛊ",
       "clear": "ᚲᛚᛖᚨᚱ"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "ᛖᚾᛏᛖᚱ ᛚᛁᛗᛁᛏ ᛈᚱᛁᚲᛖ",
       "enterLimitOrder": "ᛖᚾᛏᛖᚱ ᛚᛁᛗᛁᛏ ᛟᚱᛞᛖᚱ",
       "swap": "ᛊᚹᚨᛈ",
+      "send": "ᛊᛖᚾᛞ",
       "connectWallet": "ᚲᛟᚾᚾᛖᚲᛏ {chain} ᚹᚨᛚᛚᛖᛏ",
       "insufficientBalance": "ᛁᚾᛊᚢᚠᚠᛁᚲᛁᛖᚾᛏ ᛒᚨᛚᚨᚾᚲᛖ",
       "approve": "ᚨᛈᛈᚱᛟᚹᛖ {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "ᚲᛟᚾᚠᛁᚱᛗ ᛚᛁᛗᛁᛏ ᛟᚱᛞᛖᚱ",
       "titleSwap": "ᚲᛟᚾᚠᛁᚱᛗ ᛊᚹᚨᛈ",
+      "titlePrivateSend": "ᚲᛟᚾᚠᛁᚱᛗ ᛈᚱᛁᚹᚨᛏᛖ ᛊᛖᚾᛞ",
       "notAvailable": "ᚾ/ᚨ",
       "swapArrowLabel": "ᛊᚹᚨᛈ",
+      "sendArrowLabel": "ᛊᛖᚾᛞ",
       "chainAddress": "{chain} ᚨᛞᛞᚱᛖᛊᛊ",
       "sourceAddressTooltip": "ᚦᛖ ᚹᚨᛚᛚᛖᛏ ᚨᛞᛞᚱᛖᛊᛊ ᛊᛖᚾᛞᛁᛜ ᚦᛖ ᚠᚢᚾᛞᛊ ᚠᛟᚱ ᚦᛁᛊ ᛊᚹᚨᛈ.",
+      "sourceAddressTooltipSend": "ᚦᛖ ᚹᚨᛚᛚᛖᛏ ᚨᛞᛞᚱᛖᛊᛊ ᛊᛖᚾᛞᛁᛜ ᚦᛖ ᚠᚢᚾᛞᛊ.",
       "destinationAddressTooltip": "ᚦᛖ ᚹᚨᛚᛚᛖᛏ ᚨᛞᛞᚱᛖᛊᛊ ᚦᚨᛏ ᚹᛁᛚᛚ ᚱᛖᚲᛖᛁᚹᛖ ᚦᛖ ᛊᚹᚨᛈᛈᛖᛞ ᚠᚢᚾᛞᛊ.",
+      "destinationAddressTooltipSend": "ᚦᛖ ᚹᚨᛚᛚᛖᛏ ᚨᛞᛞᚱᛖᛊᛊ ᚦᚨᛏ ᚹᛁᛚᛚ ᚱᛖᚲᛖᛁᚹᛖ ᚦᛖ ᚠᚢᚾᛞᛊ, ᚹᛁᚦ ᚾᛟ ᛟᚾ-ᚲᚺᚨᛁᚾ ᛚᛁᚾᚲ ᛏᛟ ᚦᛖ ᛊᛖᚾᛞᛁᛜ ᚹᚨᛚᛚᛖᛏ.",
       "refundAddress": "ᚱᛖᚠᚢᚾᛞ ᚨᛞᛞᚱᛖᛊᛊ",
       "refundAddressTooltip": "ᚦᛖ ᚨᛞᛞᚱᛖᛊᛊ ᚹᚺᛖᚱᛖ ᚠᚢᚾᛞᛊ ᚹᛁᛚᛚ ᛒᛖ ᚱᛖᛏᚢᚱᚾᛖᛞ ᛁᚠ ᚦᛖ ᛊᚹᚨᛈ ᚲᚨᚾᚾᛟᛏ ᛒᛖ ᚲᛟᛗᛈᛚᛖᛏᛖᛞ.",
+      "refundAddressTooltipSend": "ᚦᛖ ᚨᛞᛞᚱᛖᛊᛊ ᚹᚺᛖᚱᛖ ᚠᚢᚾᛞᛊ ᚹᛁᛚᛚ ᛒᛖ ᚱᛖᛏᚢᚱᚾᛖᛞ ᛁᚠ ᚦᛖ ᛊᛖᚾᛞ ᚲᚨᚾᚾᛟᛏ ᛒᛖ ᚲᛟᛗᛈᛚᛖᛏᛖᛞ.",
       "limitPrice": "ᛚᛁᛗᛁᛏ ᛈᚱᛁᚲᛖ",
       "limitPriceTooltip": "ᚦᛖ ᛈᚱᛁᚲᛖ ᛈᛖᚱ ᚢᚾᛁᛏ ᚨᛏ ᚹᚺᛁᚲᚺ ᛁᛟᚢᚱ ᛚᛁᛗᛁᛏ ᛟᚱᛞᛖᚱ ᚹᛁᛚᛚ ᛖᚲᛊᛖᚲᚢᛏᛖ. ᚦᛖ ᛟᚱᛞᛖᚱ ᚹᛁᛚᛚ ᛟᚾᛚᛁ ᚠᛁᛚᛚ ᚹᚺᛖᚾ ᚦᛖ ᛗᚨᚱᚲᛖᛏ ᚱᛖᚨᚲᚺᛖᛊ ᚦᛁᛊ ᛈᚱᛁᚲᛖ.",
       "targetAmount": "ᛏᚨᚱᚷᛖᛏ ᚨᛗᛟᚢᚾᛏ",
@@ -279,8 +287,13 @@
       "save": "ᛊᚨᚹᛖ"
     },
     "private": {
-      "disclaimer": "ᛈᚱᛁᚹᚨᛏᛖ ᛊᚹᚨᛈ ᛁᛊ ᛈᛟᚹᛖᚱᛖᛞ ᛒᛁ ᚺᛟᚢᛞᛁᚾᛁ ᛊᚹᚨᛈ. <link>ᚱᛖᚨᛞ ᛗᛟᚱᛖ</link>.",
-      "acknowledge": "ᛁ ᚨᚲᚲᛖᛈᛏ ᚦᛖ <link>ᛏᛖᚱᛗᛊ ᛟᚠ ᛊᛖᚱᚹᛁᚲᛖ</link>."
+      "modeSwap": "ᛊᚹᚨᛈ",
+      "modeSend": "ᛊᛖᚾᛞ",
+      "modeSwapHint": "ᛁᚾᛏᛟ ᚨᚾᛟᚦᛖᚱ ᚨᛊᛊᛖᛏ, ᛈᚱᛁᚹᚨᛏᛖᛚᛁ",
+      "modeSendHint": "ᛏᛟ ᚨᚾᛟᚦᛖᚱ ᚹᚨᛚᛚᛖᛏ, ᛈᚱᛁᚹᚨᛏᛖᛚᛁ",
+      "disclaimer": "ᛈᚱᛁᚹᚨᛏᛖ ᛊᚹᚨᛈ ᛁᛊ ᛈᛟᚹᛖᚱᛖᛞ ᛒᛁ <link>ᚺᛟᚢᛞᛁᚾᛁ ᛊᚹᚨᛈ</link>",
+      "disclaimerSend": "ᛈᚱᛁᚹᚨᛏᛖ ᛊᛖᚾᛞ ᛁᛊ ᛈᛟᚹᛖᚱᛖᛞ ᛒᛁ <link>ᚺᛟᚢᛞᛁᚾᛁ ᛊᚹᚨᛈ</link>",
+      "acknowledge": "ᛁ ᚨᚲᚲᛖᛈᛏ ᚦᛖ <link>ᛏᛖᚱᛗᛊ ᛟᚠ ᛊᛖᚱᚹᛁᚲᛖ</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "ᛞᛖᛈᛟᛊᛁᛏ {ticker}",
       "send": "ᛊᛖᚾᛞ {ticker}",
+      "privateRoute": "ᚱᛟᚢᛏᛖ {ticker} ᛈᚱᛁᚹᚨᛏᛖᛚᛁ",
       "swap": "ᛊᚹᚨᛈ {from} ᛏᛟ {to}"
     }
   }

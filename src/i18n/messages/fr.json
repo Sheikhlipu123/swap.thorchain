@@ -59,6 +59,8 @@
     "input": {
       "sell": "Vendre",
       "buy": "Acheter",
+      "send": "Envoyer",
+      "recipientGets": "Le destinataire reçoit",
       "clear": "Effacer"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Saisir le prix limite",
       "enterLimitOrder": "Saisir l'ordre limite",
       "swap": "Échanger",
+      "send": "Envoyer",
       "connectWallet": "Connecter le portefeuille {chain}",
       "insufficientBalance": "Solde insuffisant",
       "approve": "Approuver {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Confirmer l'ordre limite",
       "titleSwap": "Confirmer l'échange",
+      "titlePrivateSend": "Confirmer l'envoi privé",
       "notAvailable": "n/a",
       "swapArrowLabel": "échanger",
+      "sendArrowLabel": "envoyer",
       "chainAddress": "Adresse {chain}",
       "sourceAddressTooltip": "Adresse du portefeuille expéditeur.",
+      "sourceAddressTooltipSend": "L'adresse du portefeuille qui envoie les fonds.",
       "destinationAddressTooltip": "Adresse du portefeuille qui recevra les fonds échangés.",
+      "destinationAddressTooltipSend": "L'adresse du portefeuille qui recevra les fonds, sans lien on-chain avec le portefeuille émetteur.",
       "refundAddress": "Adresse de remboursement",
       "refundAddressTooltip": "Adresse à laquelle les fonds seront renvoyés si l'échange ne peut pas être effectué.",
+      "refundAddressTooltipSend": "L'adresse à laquelle les fonds seront retournés si l'envoi ne peut pas être effectué.",
       "limitPrice": "Prix limite",
       "limitPriceTooltip": "Le prix unitaire auquel votre ordre limite sera exécuté. L'ordre ne sera exécuté que lorsque le marché atteindra ce prix.",
       "targetAmount": "Montant cible",
@@ -279,8 +287,13 @@
       "save": "Enregistrer"
     },
     "private": {
-      "disclaimer": "Private Swap est propulsé par Houdini Swap. <link>En savoir plus</link>.",
-      "acknowledge": "J'accepte les <link>Conditions d'utilisation</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Envoyer",
+      "modeSwapHint": "Vers un autre actif, en privé",
+      "modeSendHint": "Vers un autre portefeuille, en privé",
+      "disclaimer": "Private Swap est propulsé par <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send est propulsé par <link>Houdini Swap</link>",
+      "acknowledge": "J'accepte les <link>Conditions d'utilisation</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Déposer {ticker}",
       "send": "Envoyer {ticker}",
+      "privateRoute": "Router {ticker} en privé",
       "swap": "Échanger {from} en {to}"
     }
   }

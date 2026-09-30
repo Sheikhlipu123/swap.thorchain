@@ -59,6 +59,8 @@
     "input": {
       "sell": "فروش",
       "buy": "خرید",
+      "send": "ارسال",
+      "recipientGets": "گیرنده دریافت می‌کند",
       "clear": "پاک کردن"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "قیمت حد را وارد کنید",
       "enterLimitOrder": "سفارش حد را وارد کنید",
       "swap": "تبادل",
+      "send": "ارسال",
       "connectWallet": "اتصال کیف پول {chain}",
       "insufficientBalance": "موجودی ناکافی",
       "approve": "تأیید {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "تأیید سفارش حد",
       "titleSwap": "تأیید تبادل",
+      "titlePrivateSend": "تأیید ارسال خصوصی",
       "notAvailable": "n/a",
       "swapArrowLabel": "تبادل",
+      "sendArrowLabel": "ارسال",
       "chainAddress": "آدرس {chain}",
       "sourceAddressTooltip": "آدرس کیف پولی که وجوه این تبادل را ارسال می‌کند.",
+      "sourceAddressTooltipSend": "آدرس کیف پولی که وجوه را ارسال می‌کند.",
       "destinationAddressTooltip": "آدرس کیف پولی که وجوه تبادل‌شده را دریافت خواهد کرد.",
+      "destinationAddressTooltipSend": "آدرس کیف پولی که وجوه را دریافت می‌کند، بدون هیچ ارتباط زنجیره‌ای با کیف پول ارسال‌کننده.",
       "refundAddress": "آدرس بازگشت وجه",
       "refundAddressTooltip": "آدرسی که در صورت عدم امکان تکمیل تبادل، وجوه به آن بازگردانده می‌شود.",
+      "refundAddressTooltipSend": "آدرسی که در صورت عدم امکان تکمیل ارسال، وجوه به آن بازگردانده می‌شود.",
       "limitPrice": "قیمت حد",
       "limitPriceTooltip": "قیمت هر واحد که سفارش حد شما با آن اجرا می‌شود. سفارش تنها زمانی پر می‌شود که بازار به این قیمت برسد.",
       "targetAmount": "مقدار هدف",
@@ -279,8 +287,13 @@
       "save": "ذخیره"
     },
     "private": {
-      "disclaimer": "سواپ خصوصی توسط Houdini Swap ارائه می‌شود. <link>بیشتر بخوانید</link>.",
-      "acknowledge": "من <link>شرایط خدمات</link> را می‌پذیرم."
+      "modeSwap": "Swap",
+      "modeSend": "ارسال",
+      "modeSwapHint": "به دارایی دیگر، به‌صورت خصوصی",
+      "modeSendHint": "به کیف پول دیگر، به‌صورت خصوصی",
+      "disclaimer": "Private Swap با قدرت <link>Houdini Swap</link> ارائه می‌شود",
+      "disclaimerSend": "Private Send با قدرت <link>Houdini Swap</link> ارائه می‌شود",
+      "acknowledge": "<link>شرایط استفاده از خدمات</link> را می‌پذیرم"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "واریز {ticker}",
       "send": "ارسال {ticker}",
+      "privateRoute": "مسیریابی {ticker} به‌صورت خصوصی",
       "swap": "تبادل {from} به {to}"
     }
   }

@@ -59,6 +59,8 @@
     "input": {
       "sell": "売却",
       "buy": "購入",
+      "send": "送金",
+      "recipientGets": "受取人の受取額",
       "clear": "クリア"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "指値価格を入力",
       "enterLimitOrder": "指値注文を入力",
       "swap": "スワップ",
+      "send": "送金",
       "connectWallet": "{chain} ウォレットを接続",
       "insufficientBalance": "残高が不足しています",
       "approve": "{ticker} を承認"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "指値注文の確認",
       "titleSwap": "スワップの確認",
+      "titlePrivateSend": "プライベート送金の確認",
       "notAvailable": "n/a",
       "swapArrowLabel": "スワップ",
+      "sendArrowLabel": "送金",
       "chainAddress": "{chain} アドレス",
       "sourceAddressTooltip": "このスワップの資金を送信するウォレットアドレスです。",
+      "sourceAddressTooltipSend": "資金を送信するウォレットアドレスです。",
       "destinationAddressTooltip": "スワップされた資金を受け取るウォレットアドレスです。",
+      "destinationAddressTooltipSend": "資金を受け取るウォレットアドレスです。送信元ウォレットとのオンチェーン上の関連はありません。",
       "refundAddress": "返金アドレス",
       "refundAddressTooltip": "スワップが完了できない場合に資金が返金されるアドレスです。",
+      "refundAddressTooltipSend": "送信が完了できなかった場合に資金が返却されるアドレスです。",
       "limitPrice": "指値価格",
       "limitPriceTooltip": "指値注文が執行される単位あたりの価格です。注文は市場がこの価格に達したときにのみ約定します。",
       "targetAmount": "目標金額",
@@ -279,8 +287,13 @@
       "save": "保存"
     },
     "private": {
-      "disclaimer": "Private Swap は Houdini Swap によって提供されています。<link>詳細はこちら</link>。",
-      "acknowledge": "<link>利用規約</link>に同意します。"
+      "modeSwap": "Swap",
+      "modeSend": "送金",
+      "modeSwapHint": "別のアセットへ、プライベートに",
+      "modeSendHint": "別のウォレットへ、プライベートに",
+      "disclaimer": "Private Swap は <link>Houdini Swap</link> により提供されています",
+      "disclaimerSend": "Private Send は <link>Houdini Swap</link> により提供されています",
+      "acknowledge": "<link>利用規約</link>に同意します"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} を預け入れ",
       "send": "{ticker} を送信",
+      "privateRoute": "{ticker} をプライベートにルーティング",
       "swap": "{from} を {to} にスワップ"
     }
   }

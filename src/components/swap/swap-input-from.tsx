@@ -13,10 +13,14 @@ import { GenericButton } from '@/components/generic-button'
 import { useBalance } from '@/hooks/use-balance'
 import { useSwapRates } from '@/hooks/use-rates'
 import { useAssetFrom, useSetAssetFrom, useSwap } from '@/hooks/use-swap'
+import { useIsPrivateSend } from '@/store/limit-swap-store'
+import { startPrivateSendOnSamePick } from '@/store/swap-store'
 import { toCurrencyFixed } from '@/lib/utils'
 
 export const SwapInputFrom = () => {
   const t = useTranslations('swap')
+  const isPrivateSend = useIsPrivateSend()
+  const sellLabel = isPrivateSend ? t('input.send') : t('input.sell')
   const assetFrom = useAssetFrom()
   const setAssetFrom = useSetAssetFrom()
   const { openDialog } = useDialog()
@@ -44,6 +48,7 @@ export const SwapInputFrom = () => {
     openDialog(SwapSelectAsset, {
       selected: assetFrom,
       onSelectAsset: asset => {
+        startPrivateSendOnSamePick(asset, 'from')
         setAssetFrom(asset)
       }
     })
@@ -52,7 +57,7 @@ export const SwapInputFrom = () => {
   return (
     <div className="bg-swap-bloc rounded-15 border p-7">
       <label htmlFor="swap-sell-amount" className="text-txt-label-small mb-3 block font-semibold">
-        {t('input.sell')}
+        {sellLabel}
       </label>
 
       <div className="flex items-center justify-between">
@@ -68,7 +73,7 @@ export const SwapInputFrom = () => {
             {toCurrencyFixed(fiatValueFrom.toCurrency('$', { trimTrailingZeros: false }))}
           </div>
         </div>
-        <DropdownCoinButton aria-label={`${t('selectAsset.title')}: ${t('input.sell')}`} open={isSelectOpen} onClick={onClick}>
+        <DropdownCoinButton aria-label={`${t('selectAsset.title')}: ${sellLabel}`} open={isSelectOpen} onClick={onClick}>
           <span className="flex items-center gap-2">
             <AssetIcon asset={assetFrom} />
             <span className="flex w-16 flex-col items-start gap-1 text-left">

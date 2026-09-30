@@ -152,6 +152,9 @@ export const isMayaProvider = (provider?: string) => provider === 'MAYACHAIN' ||
 // and settled off-chain, so slippage protection and price impact do not apply.
 export const isHoudiniProvider = (provider?: string) => provider === 'HOUDINI'
 
+export const isPrivateSend = (isPrivateSwap: boolean, from?: { identifier: string }, to?: { identifier: string }) =>
+  isPrivateSwap && !!from && from.identifier === to?.identifier
+
 // Maya Protocol cannot observe or refund Taproot (bech32m) transactions.
 export const isTaprootAddress = (address: string) => address.toLowerCase().startsWith('bc1p')
 

@@ -59,6 +59,8 @@
     "input": {
       "sell": "فروخت کریں",
       "buy": "خریدیں",
+      "send": "بھیجیں",
+      "recipientGets": "وصول کنندہ کو ملے گا",
       "clear": "صاف کریں"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "limit قیمت درج کریں",
       "enterLimitOrder": "Limit Order درج کریں",
       "swap": "تبادلہ کریں",
+      "send": "بھیجیں",
       "connectWallet": "{chain} والٹ کنیکٹ کریں",
       "insufficientBalance": "ناکافی بیلنس",
       "approve": "{ticker} منظور کریں"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Limit Order کی تصدیق کریں",
       "titleSwap": "تبادلے کی تصدیق کریں",
+      "titlePrivateSend": "Private Send کی تصدیق کریں",
       "notAvailable": "n/a",
       "swapArrowLabel": "تبادلہ",
+      "sendArrowLabel": "بھیجیں",
       "chainAddress": "{chain} پتہ",
       "sourceAddressTooltip": "وہ والٹ پتہ جو اس تبادلے کے لیے فنڈز بھیج رہا ہے۔",
+      "sourceAddressTooltipSend": "وہ والٹ ایڈریس جو رقم بھیج رہا ہے۔",
       "destinationAddressTooltip": "وہ والٹ پتہ جو تبادلہ شدہ فنڈز وصول کرے گا۔",
+      "destinationAddressTooltipSend": "وہ والٹ ایڈریس جو رقم وصول کرے گا، جس کا بھیجنے والے والٹ سے کوئی آن چین تعلق نہیں ہوگا۔",
       "refundAddress": "ری فنڈ پتہ",
       "refundAddressTooltip": "وہ پتہ جہاں تبادلہ مکمل نہ ہونے کی صورت میں فنڈز واپس کیے جائیں گے۔",
+      "refundAddressTooltipSend": "وہ ایڈریس جہاں رقم واپس کی جائے گی اگر بھیجنے کا عمل مکمل نہ ہو سکے۔",
       "limitPrice": "Limit قیمت",
       "limitPriceTooltip": "وہ فی یونٹ قیمت جس پر آپ کا limit order عمل میں آئے گا۔ آرڈر صرف اسی وقت پورا ہوگا جب مارکیٹ اس قیمت تک پہنچے گی۔",
       "targetAmount": "ہدف رقم",
@@ -279,8 +287,13 @@
       "save": "محفوظ کریں"
     },
     "private": {
-      "disclaimer": "Private Swap کو Houdini Swap کی مدد حاصل ہے۔ <link>مزید پڑھیں</link>۔",
-      "acknowledge": "میں <link>سروس کی شرائط</link> قبول کرتا ہوں۔"
+      "modeSwap": "Swap",
+      "modeSend": "بھیجیں",
+      "modeSwapHint": "کسی دوسرے اثاثے میں، نجی طور پر",
+      "modeSendHint": "کسی دوسرے والٹ میں، نجی طور پر",
+      "disclaimer": "Private Swap <link>Houdini Swap</link> سے تقویت یافتہ ہے",
+      "disclaimerSend": "Private Send <link>Houdini Swap</link> سے تقویت یافتہ ہے",
+      "acknowledge": "میں <link>شرائطِ سروس</link> قبول کرتا ہوں"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} ڈپازٹ کریں",
       "send": "{ticker} بھیجیں",
+      "privateRoute": "{ticker} کو نجی طور پر روٹ کریں",
       "swap": "{from} کا {to} میں تبادلہ کریں"
     }
   }

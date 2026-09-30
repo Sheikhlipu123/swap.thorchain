@@ -59,6 +59,8 @@
     "input": {
       "sell": "Продать",
       "buy": "Купить",
+      "send": "Отправить",
+      "recipientGets": "Получатель получит",
       "clear": "Очистить"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Введите лимитную цену",
       "enterLimitOrder": "Введите лимитный ордер",
       "swap": "Обменять",
+      "send": "Отправить",
       "connectWallet": "Подключить {chain} кошелёк",
       "insufficientBalance": "Недостаточно средств",
       "approve": "Одобрить {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Подтвердите лимитный ордер",
       "titleSwap": "Подтвердите обмен",
+      "titlePrivateSend": "Подтвердите приватную отправку",
       "notAvailable": "н/д",
       "swapArrowLabel": "обмен",
+      "sendArrowLabel": "отправить",
       "chainAddress": "Адрес {chain}",
       "sourceAddressTooltip": "Адрес кошелька, с которого отправляются средства для этого обмена.",
+      "sourceAddressTooltipSend": "Адрес кошелька, с которого отправляются средства.",
       "destinationAddressTooltip": "Адрес кошелька, на который поступят обменянные средства.",
+      "destinationAddressTooltipSend": "Адрес кошелька, который получит средства, без ончейн-связи с отправляющим кошельком.",
       "refundAddress": "Адрес возврата",
       "refundAddressTooltip": "Адрес, на который вернутся средства, если обмен не удастся завершить.",
+      "refundAddressTooltipSend": "Адрес, на который будут возвращены средства, если отправку не удастся завершить.",
       "limitPrice": "Лимитная цена",
       "limitPriceTooltip": "Цена за единицу, по которой исполнится ваш лимитный ордер. Ордер исполнится, только когда рынок достигнет этой цены.",
       "targetAmount": "Целевая сумма",
@@ -279,8 +287,13 @@
       "save": "Сохранить"
     },
     "private": {
-      "disclaimer": "Private Swap работает на базе Houdini Swap. <link>Подробнее</link>.",
-      "acknowledge": "Я принимаю <link>Условия использования</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Отправка",
+      "modeSwapHint": "В другой актив, приватно",
+      "modeSendHint": "На другой кошелёк, приватно",
+      "disclaimer": "Private Swap работает на базе <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send работает на базе <link>Houdini Swap</link>",
+      "acknowledge": "Я принимаю <link>Условия использования</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Внести {ticker}",
       "send": "Отправить {ticker}",
+      "privateRoute": "Приватный маршрут для {ticker}",
       "swap": "Обменять {from} на {to}"
     }
   }

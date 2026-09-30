@@ -16,7 +16,7 @@ import { SwapProvider } from '@/components/swap/swap-provider'
 import { InfoTooltip } from '@/components/tooltip'
 import { useRates, useSwapRates } from '@/hooks/use-rates'
 import { useAssetFrom, useAssetTo, useSlippage } from '@/hooks/use-swap'
-import { formatExpiration, isHoudiniProvider, resolveFees } from '@/lib/swap-helpers'
+import { formatExpiration, isHoudiniProvider, isPrivateSend, resolveFees } from '@/lib/swap-helpers'
 import { cn, toCurrencyFixed, truncate } from '@/lib/utils'
 import { useIsLimitSwap, useLimitSwapBuyAmount } from '@/store/limit-swap-store'
 
@@ -56,7 +56,13 @@ export const SwapConfirm = ({ quote, priceImpact }: SwapConfirmProps) => {
     return expectedBuyAmount.mul(new USwapNumber(100).sub(slippageTolerance)).div(100)
   }, [expectedBuyAmount, slippageTolerance])
 
-  const { inbound, outbound, liquidity, platform, included } = resolveFees(quote, rates)
+  // Fees in a pair asset the pools cannot price (Houdini-only) take the swap's own rate for it.
+  const feeRates = {
+    ...(rateFrom && { [quote.sellAsset]: rateFrom }),
+    ...(rateTo && { [quote.buyAsset]: rateTo }),
+    ...rates
+  }
+  const { inbound, outbound, liquidity, platform, included } = resolveFees(quote, feeRates)
   const { openDialog } = useDialog()
 
   const limitBuyAmount = useMemo(() => {
@@ -80,11 +86,12 @@ export const SwapConfirm = ({ quote, priceImpact }: SwapConfirmProps) => {
   // when the deposit lands, so slippage protection has nothing to say about it. Price impact stays -
   // it is the USD cost of the route, which is what the user is weighing against privacy.
   const isPrivate = isHoudiniProvider(quote.providers[0])
+  const isSend = isPrivateSend(isPrivate, assetFrom, assetTo)
 
   return (
     <>
       <CredenzaHeader>
-        <CredenzaTitle>{isLimitSwap ? t('confirm.titleLimit') : t('confirm.titleSwap')}</CredenzaTitle>
+        <CredenzaTitle>{isLimitSwap ? t('confirm.titleLimit') : isSend ? t('confirm.titlePrivateSend') : t('confirm.titleSwap')}</CredenzaTitle>
       </CredenzaHeader>
 
       <ScrollArea className="relative flex min-h-0 flex-1 px-4 md:px-8" classNameViewport="flex-1 h-auto">
@@ -104,7 +111,7 @@ export const SwapConfirm = ({ quote, priceImpact }: SwapConfirmProps) => {
 
             <div className="flex flex-1 flex-col items-center">
               <Icon name="arrow-m-right" className="text-txt-label-small size-5" />
-              <span className="text-txt-label-small text-xs">{t('confirm.swapArrowLabel')}</span>
+              <span className="text-txt-label-small text-xs">{isSend ? t('confirm.sendArrowLabel') : t('confirm.swapArrowLabel')}</span>
             </div>
 
             <div className="flex items-center gap-3">
@@ -128,7 +135,7 @@ export const SwapConfirm = ({ quote, priceImpact }: SwapConfirmProps) => {
                 <div className="text-txt-label-small flex justify-between text-sm">
                   <div className="flex items-center gap-1">
                     <span>{t('confirm.chainAddress', { chain: chainLabel(assetFrom.chain) })}</span>
-                    <InfoTooltip>{t('confirm.sourceAddressTooltip')}</InfoTooltip>
+                    <InfoTooltip>{isSend ? t('confirm.sourceAddressTooltipSend') : t('confirm.sourceAddressTooltip')}</InfoTooltip>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-txt-contrast-modal font-semibold">{truncate(quote.sourceAddress)}</span>
@@ -141,7 +148,7 @@ export const SwapConfirm = ({ quote, priceImpact }: SwapConfirmProps) => {
                 <div className="text-txt-label-small flex justify-between text-sm">
                   <div className="flex items-center gap-1">
                     <span>{t('confirm.chainAddress', { chain: chainLabel(assetTo.chain) })}</span>
-                    <InfoTooltip>{t('confirm.destinationAddressTooltip')}</InfoTooltip>
+                    <InfoTooltip>{isSend ? t('confirm.destinationAddressTooltipSend') : t('confirm.destinationAddressTooltip')}</InfoTooltip>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-txt-high-contrast font-semibold">{truncate(quote.destinationAddress)}</span>
@@ -154,7 +161,7 @@ export const SwapConfirm = ({ quote, priceImpact }: SwapConfirmProps) => {
                 <div className="text-txt-label-small flex justify-between text-sm">
                   <div className="flex items-center gap-1">
                     <span>{t('confirm.refundAddress')}</span>
-                    <InfoTooltip>{t('confirm.refundAddressTooltip')}</InfoTooltip>
+                    <InfoTooltip>{isSend ? t('confirm.refundAddressTooltipSend') : t('confirm.refundAddressTooltip')}</InfoTooltip>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-txt-high-contrast font-semibold">{truncate(quote.refundAddress)}</span>

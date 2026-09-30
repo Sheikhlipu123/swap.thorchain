@@ -59,6 +59,8 @@
     "input": {
       "sell": "बेचें",
       "buy": "खरीदें",
+      "send": "भेजें",
+      "recipientGets": "प्राप्तकर्ता को मिलेगा",
       "clear": "साफ़ करें"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "लिमिट मूल्य दर्ज करें",
       "enterLimitOrder": "लिमिट ऑर्डर दर्ज करें",
       "swap": "स्वैप करें",
+      "send": "भेजें",
       "connectWallet": "{chain} वॉलेट कनेक्ट करें",
       "insufficientBalance": "अपर्याप्त शेष राशि",
       "approve": "{ticker} को स्वीकृत करें"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "लिमिट ऑर्डर की पुष्टि करें",
       "titleSwap": "स्वैप की पुष्टि करें",
+      "titlePrivateSend": "Private Send की पुष्टि करें",
       "notAvailable": "n/a",
       "swapArrowLabel": "स्वैप",
+      "sendArrowLabel": "भेजें",
       "chainAddress": "{chain} पता",
       "sourceAddressTooltip": "इस स्वैप के लिए धन भेजने वाला वॉलेट पता.",
+      "sourceAddressTooltipSend": "वह वॉलेट पता जिससे फंड भेजे जा रहे हैं।",
       "destinationAddressTooltip": "वह वॉलेट पता जो स्वैप किया गया धन प्राप्त करेगा.",
+      "destinationAddressTooltipSend": "वह वॉलेट पता जिसे फंड प्राप्त होंगे, जिसका भेजने वाले वॉलेट से कोई ऑन-चेन संबंध नहीं है।",
       "refundAddress": "रिफंड पता",
       "refundAddressTooltip": "वह पता जहां स्वैप पूरा न होने पर धन वापस किया जाएगा.",
+      "refundAddressTooltipSend": "वह पता जहाँ भेजना पूरा न हो पाने पर फंड वापस किए जाएंगे।",
       "limitPrice": "लिमिट मूल्य",
       "limitPriceTooltip": "वह प्रति-इकाई मूल्य जिस पर आपका लिमिट ऑर्डर निष्पादित होगा. ऑर्डर तभी पूरा होगा जब बाज़ार इस मूल्य तक पहुंचेगा.",
       "targetAmount": "लक्ष्य राशि",
@@ -279,8 +287,13 @@
       "save": "सहेजें"
     },
     "private": {
-      "disclaimer": "Private Swap, Houdini Swap द्वारा संचालित है। <link>और पढ़ें</link>।",
-      "acknowledge": "मैं <link>सेवा की शर्तें</link> स्वीकार करता हूँ।"
+      "modeSwap": "Swap",
+      "modeSend": "भेजें",
+      "modeSwapHint": "किसी अन्य एसेट में, निजी तौर पर",
+      "modeSendHint": "किसी अन्य वॉलेट में, निजी तौर पर",
+      "disclaimer": "Private Swap <link>Houdini Swap</link> द्वारा संचालित है",
+      "disclaimerSend": "Private Send <link>Houdini Swap</link> द्वारा संचालित है",
+      "acknowledge": "मैं <link>सेवा की शर्तें</link> स्वीकार करता हूँ"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} जमा करें",
       "send": "{ticker} भेजें",
+      "privateRoute": "{ticker} को निजी तौर पर रूट करें",
       "swap": "{from} को {to} में स्वैप करें"
     }
   }

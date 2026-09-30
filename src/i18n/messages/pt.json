@@ -59,6 +59,8 @@
     "input": {
       "sell": "Vender",
       "buy": "Comprar",
+      "send": "Enviar",
+      "recipientGets": "O destinatário recebe",
       "clear": "Limpar"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Inserir preço limite",
       "enterLimitOrder": "Inserir ordem limite",
       "swap": "Trocar",
+      "send": "Enviar",
       "connectWallet": "Conectar carteira {chain}",
       "insufficientBalance": "Saldo insuficiente",
       "approve": "Aprovar {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Confirmar ordem limite",
       "titleSwap": "Confirmar troca",
+      "titlePrivateSend": "Confirmar envio privado",
       "notAvailable": "n/a",
       "swapArrowLabel": "trocar",
+      "sendArrowLabel": "enviar",
       "chainAddress": "Endereço {chain}",
       "sourceAddressTooltip": "O endereço da carteira que envia os fundos para esta troca.",
+      "sourceAddressTooltipSend": "O endereço da carteira que envia os fundos.",
       "destinationAddressTooltip": "O endereço da carteira que receberá os fundos trocados.",
+      "destinationAddressTooltipSend": "O endereço da carteira que receberá os fundos, sem qualquer ligação on-chain com a carteira remetente.",
       "refundAddress": "Endereço de reembolso",
       "refundAddressTooltip": "O endereço para onde os fundos serão devolvidos caso a troca não possa ser concluída.",
+      "refundAddressTooltipSend": "O endereço para onde os fundos serão devolvidos caso o envio não possa ser concluído.",
       "limitPrice": "Preço limite",
       "limitPriceTooltip": "O preço por unidade no qual sua ordem limite será executada. A ordem só será preenchida quando o mercado atingir esse preço.",
       "targetAmount": "Quantia alvo",
@@ -279,8 +287,13 @@
       "save": "Salvar"
     },
     "private": {
-      "disclaimer": "O Private Swap é fornecido pela Houdini Swap. <link>Saiba mais</link>.",
-      "acknowledge": "Aceito os <link>Termos de Serviço</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Enviar",
+      "modeSwapHint": "Para outro ativo, de forma privada",
+      "modeSendHint": "Para outra carteira, de forma privada",
+      "disclaimer": "O Private Swap é fornecido por <link>Houdini Swap</link>",
+      "disclaimerSend": "O Private Send é fornecido por <link>Houdini Swap</link>",
+      "acknowledge": "Aceito os <link>Termos de Serviço</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Depositar {ticker}",
       "send": "Enviar {ticker}",
+      "privateRoute": "Encaminhar {ticker} de forma privada",
       "swap": "Trocar {from} por {to}"
     }
   }

@@ -67,10 +67,11 @@ export const useSeedReplacementForm = () => {
 
   return useCallback(
     ({ assetFrom, assetTo, amountFrom, pricePerUnit, expiryBlocks }: ReplacementOrder) => {
+      // Limit mode first: in Send mode each asset setter fills both sides.
+      setIsLimitSwap(true)
       setAssetFrom(assetFrom)
       setAssetTo(assetTo)
       setAmountFrom(amountFrom)
-      setIsLimitSwap(true)
       // SwapLimit consumes this and sets the expiry and buy amount from it.
       setPendingLimitOrder({ pricePerUnit, expiryBlocks })
     },

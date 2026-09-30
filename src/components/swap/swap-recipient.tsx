@@ -24,7 +24,7 @@ import { useAccounts, useSelectedAccount } from '@/hooks/use-wallets'
 import { getQuotes } from '@/lib/api'
 import { resolveQuoteError } from '@/lib/errors'
 import { prepareQuoteForLimitSwap } from '@/lib/memo-helpers'
-import { isMayaProvider, isTaprootAddress } from '@/lib/swap-helpers'
+import { isMayaProvider, isPrivateSend, isTaprootAddress } from '@/lib/swap-helpers'
 import { cn, truncate } from '@/lib/utils'
 import { useIsLimitSwap, useLimitSwapBuyAmount, useLimitSwapExpiry } from '@/store/limit-swap-store'
 import { useReplacementOrder } from '@/store/replacement-order-store'
@@ -58,14 +58,17 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
   const replacementOrder = useReplacementOrder()
   const [destinationAddress, setDestinationAddress] = useState<string>(() => replacementOrder?.destination ?? '')
   const [refundAddress, setRefundAddress] = useState<string>('')
+  const [refundAsked, setRefundAsked] = useState(false)
   const [warningChecked, setWarningChecked] = useState(false)
   const [warningCheckedLTC, setWarningCheckedLTC] = useState(false)
 
   if (!assetFrom || !assetTo) return null
 
-  // A deposit-address provider refunds a failed order to an address it is told, so without a
-  // wallet to read one from, the user names it.
-  const refundRequired = !selectedAccount && (provider === 'NEAR' || provider === 'HOUDINI')
+  // Without a wallet the user names the refund address - except for a private send, which (like
+  // Houdini's own Send tab) needs one only when every route on offer asks for it.
+  const depositOrder = !selectedAccount && (provider === 'NEAR' || provider === 'HOUDINI')
+  const isSend = isPrivateSend(provider === 'HOUDINI', assetFrom, assetTo)
+  const refundRequired = depositOrder && (!isSend || refundAsked)
   const options = accounts.filter(a => a.network === assetTo.chain)
   const isMayachain = isMayaProvider(provider)
   const isTaprootDestination = isMayachain && assetTo.chain === Chain.Bitcoin && isTaprootAddress(destinationAddress)
@@ -107,7 +110,7 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
       sourceAddress: selectedAccount?.address,
       destinationAddress: destinationAddress,
       refundAddress: refundRequired ? refundAddress : provider === 'MAYACHAIN' ? undefined : selectedAccount?.address,
-      dry: !(refundRequired || selectedAccount),
+      dry: !(depositOrder || selectedAccount),
       slippage: isLimitSwap ? 0 : (slippage ?? 99),
       providers: [provider],
       ...(supportsStreaming && !isLimitSwap && { streamingInterval: customInterval, streamingQuantity: customQuantity })
@@ -123,7 +126,9 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
         onFetchQuote(quote)
       })
       .catch(error => {
-        setQuoteError(error instanceof USwapError ? resolveQuoteError(error) : error)
+        const resolved = error instanceof USwapError ? resolveQuoteError(error) : error
+        if (isSend && depositOrder && resolved?.message?.includes('refund address')) setRefundAsked(true)
+        setQuoteError(resolved)
       })
       .finally(() => setQuoting(false))
   }

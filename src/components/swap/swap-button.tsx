@@ -16,7 +16,7 @@ import { useSimulation } from '@/hooks/use-simulation'
 import { useAssetFrom, useAssetTo, useSwap } from '@/hooks/use-swap'
 import { useExternalWalletMode, useSelectedAccount, useSetExternalWalletMode } from '@/hooks/use-wallets'
 import { readableError } from '@/lib/errors'
-import { isMayaProvider, isTaprootAddress, waitForAllowance } from '@/lib/swap-helpers'
+import { isMayaProvider, isPrivateSend, isTaprootAddress, waitForAllowance } from '@/lib/swap-helpers'
 import { getUSwap } from '@/lib/wallets'
 import { useIsLimitSwap, useLimitSwapBuyAmount } from '@/store/limit-swap-store'
 import { useIsPrivateSwap, usePrivateSwapAcknowledged } from '@/store/private-swap-store'
@@ -54,6 +54,11 @@ export const SwapButton = ({ instantSwapSupported, instantSwapAvailable }: SwapB
   const { mimir } = useMimir()
   const isMayaChain = isMayaProvider(quote?.providers[0])
   const isLimitSwapDisabled = mimir['ENABLEADVSWAPQUEUE'] === 2 || isMayaChain
+  const actionLabel = isLimitSwap
+    ? t('button.enterLimitOrder')
+    : isPrivateSend(isPrivateSwap, assetFrom, assetTo)
+      ? t('button.send')
+      : t('button.swap')
 
   const [isApproving, setIsApproving] = useState(false)
 
@@ -128,7 +133,7 @@ export const SwapButton = ({ instantSwapSupported, instantSwapAvailable }: SwapB
 
     if (!selectedAccount) {
       if (instantSwapSupported) {
-        const label = isLimitSwap ? t('button.enterLimitOrder') : t('button.swap')
+        const label = actionLabel
         if (!instantSwapAvailable) {
           return { text: label, spinner: false, accent: false }
         }
@@ -172,7 +177,7 @@ export const SwapButton = ({ instantSwapSupported, instantSwapAvailable }: SwapB
     }
 
     return {
-      text: isLimitSwap ? t('button.enterLimitOrder') : t('button.swap'),
+      text: actionLabel,
       spinner: false,
       accent: true,
       onClick: () => onSwap(quote)

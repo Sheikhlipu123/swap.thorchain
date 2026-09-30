@@ -59,6 +59,8 @@
     "input": {
       "sell": "卖出",
       "buy": "买入",
+      "send": "发送",
+      "recipientGets": "接收方获得",
       "clear": "清除"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "输入限价",
       "enterLimitOrder": "输入限价订单",
       "swap": "兑换",
+      "send": "发送",
       "connectWallet": "连接{chain}钱包",
       "insufficientBalance": "余额不足",
       "approve": "授权{ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "确认限价订单",
       "titleSwap": "确认兑换",
+      "titlePrivateSend": "确认私密发送",
       "notAvailable": "n/a",
       "swapArrowLabel": "兑换",
+      "sendArrowLabel": "发送",
       "chainAddress": "{chain}地址",
       "sourceAddressTooltip": "发送方：本次兑换发送资金的钱包地址。",
+      "sourceAddressTooltipSend": "发送资金的钱包地址。",
       "destinationAddressTooltip": "接收方：本次兑换接收资金的钱包地址。",
+      "destinationAddressTooltipSend": "接收资金的钱包地址，与发送钱包在链上无关联。",
       "refundAddress": "退款地址",
       "refundAddressTooltip": "若兑换无法完成，资金将退回至此地址。",
+      "refundAddressTooltipSend": "若发送无法完成，资金将退回至该地址。",
       "limitPrice": "限价",
       "limitPriceTooltip": "您的限价订单将以此单价执行。订单仅在市场达到该价格时成交。",
       "targetAmount": "目标金额",
@@ -279,8 +287,13 @@
       "save": "保存"
     },
     "private": {
-      "disclaimer": "Private Swap 由 Houdini Swap 提供支持。<link>了解更多</link>。",
-      "acknowledge": "我接受<link>服务条款</link>。"
+      "modeSwap": "Swap",
+      "modeSend": "发送",
+      "modeSwapHint": "私密兑换为其他资产",
+      "modeSendHint": "私密发送至其他钱包",
+      "disclaimer": "Private Swap 由 <link>Houdini Swap</link> 提供支持",
+      "disclaimerSend": "Private Send 由 <link>Houdini Swap</link> 提供支持",
+      "acknowledge": "我接受<link>服务条款</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "存入{ticker}",
       "send": "发送{ticker}",
+      "privateRoute": "私密路由 {ticker}",
       "swap": "将{from}兑换为{to}"
     }
   }

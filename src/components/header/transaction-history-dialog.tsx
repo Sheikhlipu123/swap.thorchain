@@ -4,7 +4,7 @@ import { Fragment, useEffect, useMemo, useState } from 'react'
 import { assetFromString, Chain, ChainId, ChainIdToChain, getExplorerTxUrl, USwapNumber } from '@tcswap/core'
 import { ProviderName } from '@tcswap/helpers'
 import { format, formatDuration, intervalToDuration, isSameDay, isToday, isYesterday } from 'date-fns'
-import { CircleAlert, CircleCheck, ClockFading, Crosshair, Undo2, X } from 'lucide-react'
+import { CircleAlert, CircleCheck, ClockFading, Undo2, X } from 'lucide-react'
 import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
 import { Credenza, CredenzaContent, CredenzaHeader, CredenzaTitle } from '@/components/ui/credenza'
@@ -266,12 +266,20 @@ export const TransactionHistoryDialog = ({ isOpen, onOpenChange }: HistoryDialog
                               </GenericButton>
                             )}
                             {showLimitSwapActions && (
-                              <GenericButton size="small" className="text-green-contrast h-8 rounded-none bg-transparent" onClick={() => onLimitModify('modify', tx)}>
+                              <GenericButton
+                                size="small"
+                                className="text-green-contrast h-8 rounded-none bg-transparent"
+                                onClick={() => onLimitModify('modify', tx)}
+                              >
                                 {t('modify')}
                               </GenericButton>
                             )}
                             {showLimitSwapActions && (
-                              <GenericButton size="small" className="text-green-contrast h-8 rounded-none bg-transparent" onClick={() => onLimitModify('cancel', tx)}>
+                              <GenericButton
+                                size="small"
+                                className="text-green-contrast h-8 rounded-none bg-transparent"
+                                onClick={() => onLimitModify('cancel', tx)}
+                              >
                                 {t('cancelOrder')}
                               </GenericButton>
                             )}
@@ -304,7 +312,7 @@ export const TransactionHistoryDialog = ({ isOpen, onOpenChange }: HistoryDialog
 
                         <div className="space-y-4 border-t py-4 text-xs font-semibold">
                           {details.legs.map((legTx: any, i: number) => {
-                            return <div key={i}>{renderLeg(tx, legTx, t)}</div>
+                            return <div key={i}>{renderLeg(tx, legTx, i, t)}</div>
                           })}
                         </div>
                       </>
@@ -408,12 +416,20 @@ function getExplorerLinks(tx: Transaction): ExplorerLink[] {
   return links
 }
 
-function renderLeg(tx: any, legTx: any, t: ReturnType<typeof useTranslations>) {
+function renderLeg(tx: any, legTx: any, index: number, t: ReturnType<typeof useTranslations>) {
   const from = assetFromString(legTx.fromAsset)
   const to = assetFromString(legTx.toAsset)
+  // A private send has the same asset on every leg, so the asset test below would call all three
+  // "Deposit"; its legs are told apart by type and position instead.
+  const isSameAssetSwap = tx.assetFrom.identifier.toLowerCase() === tx.assetTo?.identifier?.toLowerCase()
 
-  const text =
-    legTx.fromAsset === legTx.toAsset
+  const text = isSameAssetSwap
+    ? legTx.type === 'swap'
+      ? t('leg.privateRoute', { ticker: from.ticker ?? '' })
+      : index === 0
+        ? t('leg.deposit', { ticker: from.ticker ?? '' })
+        : t('leg.send', { ticker: to.ticker ?? '' })
+    : legTx.fromAsset === legTx.toAsset
       ? legTx.fromAsset.toLowerCase() === tx.assetFrom.identifier.toLowerCase()
         ? t('leg.deposit', { ticker: from.ticker ?? '' })
         : t('leg.send', { ticker: to.ticker ?? '' })

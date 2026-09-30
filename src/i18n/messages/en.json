@@ -59,6 +59,8 @@
     "input": {
       "sell": "Sell",
       "buy": "Buy",
+      "send": "Send",
+      "recipientGets": "Recipient Gets",
       "clear": "Clear"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Enter limit price",
       "enterLimitOrder": "Enter Limit Order",
       "swap": "Swap",
+      "send": "Send",
       "connectWallet": "Connect {chain} Wallet",
       "insufficientBalance": "Insufficient Balance",
       "approve": "Approve {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Confirm Limit Order",
       "titleSwap": "Confirm Swap",
+      "titlePrivateSend": "Confirm Private Send",
       "notAvailable": "n/a",
       "swapArrowLabel": "swap",
+      "sendArrowLabel": "send",
       "chainAddress": "{chain} Address",
       "sourceAddressTooltip": "The wallet address sending the funds for this swap.",
+      "sourceAddressTooltipSend": "The wallet address sending the funds.",
       "destinationAddressTooltip": "The wallet address that will receive the swapped funds.",
+      "destinationAddressTooltipSend": "The wallet address that will receive the funds, with no on-chain link to the sending wallet.",
       "refundAddress": "Refund Address",
       "refundAddressTooltip": "The address where funds will be returned if the swap cannot be completed.",
+      "refundAddressTooltipSend": "The address where funds will be returned if the send cannot be completed.",
       "limitPrice": "Limit Price",
       "limitPriceTooltip": "The price per unit at which your limit order will execute. The order will only fill when the market reaches this price.",
       "targetAmount": "Target Amount",
@@ -279,8 +287,13 @@
       "save": "Save"
     },
     "private": {
-      "disclaimer": "Private Swap is powered by Houdini Swap. <link>Read More</link>.",
-      "acknowledge": "I accept the <link>Terms of Service</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Send",
+      "modeSwapHint": "Into another asset, privately",
+      "modeSendHint": "To another wallet, privately",
+      "disclaimer": "Private Swap is powered by <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send is powered by <link>Houdini Swap</link>",
+      "acknowledge": "I accept the <link>Terms of Service</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Deposit {ticker}",
       "send": "Send {ticker}",
+      "privateRoute": "Route {ticker} privately",
       "swap": "Swap {from} to {to}"
     }
   }

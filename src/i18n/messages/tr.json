@@ -59,6 +59,8 @@
     "input": {
       "sell": "Sat",
       "buy": "Al",
+      "send": "Gönder",
+      "recipientGets": "Alıcının Alacağı",
       "clear": "Temizle"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Limit fiyatı gir",
       "enterLimitOrder": "Limit Emri Gir",
       "swap": "Takas Et",
+      "send": "Gönder",
       "connectWallet": "{chain} Cüzdanı Bağla",
       "insufficientBalance": "Yetersiz Bakiye",
       "approve": "{ticker} Onayla"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Limit Emrini Onayla",
       "titleSwap": "Takası Onayla",
+      "titlePrivateSend": "Gizli Gönderimi Onayla",
       "notAvailable": "n/a",
       "swapArrowLabel": "takas",
+      "sendArrowLabel": "gönder",
       "chainAddress": "{chain} Adresi",
       "sourceAddressTooltip": "Bu takas için fonları gönderen cüzdan adresi.",
+      "sourceAddressTooltipSend": "Fonları gönderen cüzdan adresi.",
       "destinationAddressTooltip": "Takas edilen fonları alacak cüzdan adresi.",
+      "destinationAddressTooltipSend": "Fonları alacak olan ve gönderen cüzdanla zincir üzerinde hiçbir bağlantısı bulunmayan cüzdan adresi.",
       "refundAddress": "İade Adresi",
       "refundAddressTooltip": "Takas tamamlanamazsa fonların iade edileceği adres.",
+      "refundAddressTooltipSend": "Gönderim tamamlanamazsa fonların geri gönderileceği adres.",
       "limitPrice": "Limit Fiyatı",
       "limitPriceTooltip": "Limit emrinin gerçekleşeceği birim başına fiyat. Emir yalnızca piyasa bu fiyata ulaştığında gerçekleşir.",
       "targetAmount": "Hedef Tutar",
@@ -279,8 +287,13 @@
       "save": "Kaydet"
     },
     "private": {
-      "disclaimer": "Private Swap, Houdini Swap tarafından desteklenmektedir. <link>Daha Fazla Bilgi</link>.",
-      "acknowledge": "<link>Hizmet Şartları</link>'nı kabul ediyorum."
+      "modeSwap": "Swap",
+      "modeSend": "Gönder",
+      "modeSwapHint": "Gizli olarak başka bir varlığa",
+      "modeSendHint": "Gizli olarak başka bir cüzdana",
+      "disclaimer": "Private Swap, <link>Houdini Swap</link> tarafından desteklenmektedir",
+      "disclaimerSend": "Private Send, <link>Houdini Swap</link> tarafından desteklenmektedir",
+      "acknowledge": "<link>Hizmet Şartları</link>'nı kabul ediyorum"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} Yatır",
       "send": "{ticker} Gönder",
+      "privateRoute": "{ticker} gizli olarak yönlendir",
       "swap": "{from} → {to} Takas"
     }
   }

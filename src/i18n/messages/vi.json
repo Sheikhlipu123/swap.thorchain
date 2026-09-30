@@ -59,6 +59,8 @@
     "input": {
       "sell": "Bán",
       "buy": "Mua",
+      "send": "Gửi",
+      "recipientGets": "Người nhận nhận được",
       "clear": "Xóa"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Nhập giá giới hạn",
       "enterLimitOrder": "Nhập lệnh giới hạn",
       "swap": "Hoán đổi",
+      "send": "Gửi",
       "connectWallet": "Kết nối ví {chain}",
       "insufficientBalance": "Số dư không đủ",
       "approve": "Phê duyệt {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Xác nhận lệnh giới hạn",
       "titleSwap": "Xác nhận hoán đổi",
+      "titlePrivateSend": "Xác nhận Gửi riêng tư",
       "notAvailable": "n/a",
       "swapArrowLabel": "hoán đổi",
+      "sendArrowLabel": "gửi",
       "chainAddress": "Địa chỉ {chain}",
       "sourceAddressTooltip": "Địa chỉ ví gửi tiền cho giao dịch hoán đổi này.",
+      "sourceAddressTooltipSend": "Địa chỉ ví gửi tiền.",
       "destinationAddressTooltip": "Địa chỉ ví sẽ nhận số tiền đã hoán đổi.",
+      "destinationAddressTooltipSend": "Địa chỉ ví sẽ nhận tiền, không có liên kết on-chain nào với ví gửi.",
       "refundAddress": "Địa chỉ hoàn tiền",
       "refundAddressTooltip": "Địa chỉ nơi tiền sẽ được trả lại nếu không thể hoàn tất hoán đổi.",
+      "refundAddressTooltipSend": "Địa chỉ nhận lại tiền nếu không thể hoàn tất giao dịch gửi.",
       "limitPrice": "Giá giới hạn",
       "limitPriceTooltip": "Giá trên mỗi đơn vị mà lệnh giới hạn của bạn sẽ được thực hiện. Lệnh chỉ được khớp khi thị trường đạt đến mức giá này.",
       "targetAmount": "Số lượng mục tiêu",
@@ -279,8 +287,13 @@
       "save": "Lưu"
     },
     "private": {
-      "disclaimer": "Private Swap được cung cấp bởi Houdini Swap. <link>Tìm hiểu thêm</link>.",
-      "acknowledge": "Tôi chấp nhận <link>Điều khoản Dịch vụ</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Gửi",
+      "modeSwapHint": "Sang tài sản khác, riêng tư",
+      "modeSendHint": "Đến ví khác, riêng tư",
+      "disclaimer": "Private Swap được cung cấp bởi <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send được cung cấp bởi <link>Houdini Swap</link>",
+      "acknowledge": "Tôi đồng ý với <link>Điều khoản Dịch vụ</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Nạp {ticker}",
       "send": "Gửi {ticker}",
+      "privateRoute": "Định tuyến {ticker} riêng tư",
       "swap": "Hoán đổi {from} sang {to}"
     }
   }

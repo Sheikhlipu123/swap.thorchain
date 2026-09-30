@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 // The PRIVATE tab's state lives in the limit-swap store, next to the mode it is exclusive with,
 // so each setter can clear the other. Re-exported here under the name the private-tab code uses.
-export { useIsPrivateSwap, useSetIsPrivateSwap } from '@/store/limit-swap-store'
+export { useIsPrivateSend, useIsPrivateSwap, useSetIsPrivateSend, useSetIsPrivateSwap } from '@/store/limit-swap-store'
 
 interface PrivateSwapState {
   // The third-party disclaimer; kept for the session so a tab switch does not ask again.

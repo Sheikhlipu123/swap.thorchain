@@ -59,6 +59,8 @@
     "input": {
       "sell": "판매",
       "buy": "구매",
+      "send": "보내기",
+      "recipientGets": "수령인 수령액",
       "clear": "지우기"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "지정가 입력",
       "enterLimitOrder": "지정가 주문 입력",
       "swap": "스왑",
+      "send": "보내기",
       "connectWallet": "{chain} 지갑 연결",
       "insufficientBalance": "잔액 부족",
       "approve": "{ticker} 승인"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "지정가 주문 확인",
       "titleSwap": "스왑 확인",
+      "titlePrivateSend": "프라이빗 전송 확인",
       "notAvailable": "n/a",
       "swapArrowLabel": "스왑",
+      "sendArrowLabel": "전송",
       "chainAddress": "{chain} 주소",
       "sourceAddressTooltip": "이 스왑에 자금을 보내는 지갑 주소입니다.",
+      "sourceAddressTooltipSend": "자금을 보내는 지갑 주소입니다.",
       "destinationAddressTooltip": "스왑된 자금을 받을 지갑 주소입니다.",
+      "destinationAddressTooltipSend": "자금을 받을 지갑 주소이며, 보내는 지갑과 온체인상 연결되지 않습니다.",
       "refundAddress": "환불 주소",
       "refundAddressTooltip": "스왑을 완료할 수 없는 경우 자금이 반환될 주소입니다.",
+      "refundAddressTooltipSend": "전송이 완료되지 못할 경우 자금이 반환될 주소입니다.",
       "limitPrice": "지정가",
       "limitPriceTooltip": "지정가 주문이 실행될 단위당 가격입니다. 시장이 이 가격에 도달할 때만 주문이 체결됩니다.",
       "targetAmount": "목표 금액",
@@ -279,8 +287,13 @@
       "save": "저장"
     },
     "private": {
-      "disclaimer": "Private Swap은 Houdini Swap으로 구동됩니다. <link>자세히 보기</link>.",
-      "acknowledge": "<link>서비스 약관</link>에 동의합니다."
+      "modeSwap": "Swap",
+      "modeSend": "보내기",
+      "modeSwapHint": "다른 자산으로, 비공개 전환",
+      "modeSendHint": "다른 지갑으로, 비공개 전송",
+      "disclaimer": "Private Swap은 <link>Houdini Swap</link>으로 제공됩니다",
+      "disclaimerSend": "Private Send는 <link>Houdini Swap</link>으로 제공됩니다",
+      "acknowledge": "<link>서비스 이용약관</link>에 동의합니다"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} 입금",
       "send": "{ticker} 보내기",
+      "privateRoute": "{ticker} 비공개 라우팅",
       "swap": "{from}을(를) {to}(으)로 스왑"
     }
   }

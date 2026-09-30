@@ -59,6 +59,8 @@
     "input": {
       "sell": "Verkaufen",
       "buy": "Kaufen",
+      "send": "Senden",
+      "recipientGets": "Empfänger erhält",
       "clear": "Löschen"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Limit-Preis eingeben",
       "enterLimitOrder": "Limit-Order eingeben",
       "swap": "Swap",
+      "send": "Senden",
       "connectWallet": "{chain}-Wallet verbinden",
       "insufficientBalance": "Unzureichendes Guthaben",
       "approve": "{ticker} genehmigen"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Limit-Order bestätigen",
       "titleSwap": "Swap bestätigen",
+      "titlePrivateSend": "Private Send bestätigen",
       "notAvailable": "n/a",
       "swapArrowLabel": "swap",
+      "sendArrowLabel": "senden",
       "chainAddress": "{chain}-Adresse",
       "sourceAddressTooltip": "Die Wallet-Adresse, die die Gelder für diesen Swap sendet.",
+      "sourceAddressTooltipSend": "Die Wallet-Adresse, von der die Mittel gesendet werden.",
       "destinationAddressTooltip": "Die Wallet-Adresse, die die getauschten Gelder empfängt.",
+      "destinationAddressTooltipSend": "Die Wallet-Adresse, die die Mittel empfängt – ohne On-Chain-Verbindung zur sendenden Wallet.",
       "refundAddress": "Rückerstattungsadresse",
       "refundAddressTooltip": "Die Adresse, an die die Gelder zurückgesendet werden, falls der Swap nicht abgeschlossen werden kann.",
+      "refundAddressTooltipSend": "Die Adresse, an die die Mittel zurückgesendet werden, falls der Versand nicht abgeschlossen werden kann.",
       "limitPrice": "Limit-Preis",
       "limitPriceTooltip": "Der Preis pro Einheit, zu dem Ihre Limit-Order ausgeführt wird. Die Order wird nur ausgeführt, wenn der Markt diesen Preis erreicht.",
       "targetAmount": "Zielbetrag",
@@ -279,8 +287,13 @@
       "save": "Speichern"
     },
     "private": {
-      "disclaimer": "Private Swap wird von Houdini Swap bereitgestellt. <link>Mehr erfahren</link>.",
-      "acknowledge": "Ich akzeptiere die <link>Nutzungsbedingungen</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Senden",
+      "modeSwapHint": "In ein anderes Asset, privat",
+      "modeSendHint": "An eine andere Wallet, privat",
+      "disclaimer": "Private Swap wird unterstützt von <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send wird unterstützt von <link>Houdini Swap</link>",
+      "acknowledge": "Ich akzeptiere die <link>Nutzungsbedingungen</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} einzahlen",
       "send": "{ticker} senden",
+      "privateRoute": "{ticker} privat routen",
       "swap": "{from} zu {to} swappen"
     }
   }

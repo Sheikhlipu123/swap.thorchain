@@ -14,7 +14,8 @@ import { Tooltip } from '@/components/tooltip'
 import { useQuote } from '@/hooks/use-quote'
 import { useSwapRates } from '@/hooks/use-rates'
 import { useAssetTo, useSetAssetTo } from '@/hooks/use-swap'
-import { useIsLimitSwap, useLimitSwapBuyAmount } from '@/store/limit-swap-store'
+import { useIsLimitSwap, useIsPrivateSend, useLimitSwapBuyAmount } from '@/store/limit-swap-store'
+import { startPrivateSendOnSamePick } from '@/store/swap-store'
 import { toCurrencyFixed } from '@/lib/utils'
 
 export const SwapInputTo = ({ priceImpact }: { priceImpact?: USwapNumber }) => {
@@ -26,6 +27,8 @@ export const SwapInputTo = ({ priceImpact }: { priceImpact?: USwapNumber }) => {
   const { rateTo } = useSwapRates()
   const isLimitSwap = useIsLimitSwap()
   const limitSwapBuyAmount = useLimitSwapBuyAmount()
+  const isPrivateSend = useIsPrivateSend()
+  const buyLabel = isPrivateSend ? t('input.recipientGets') : t('input.buy')
 
   const value =
     isLimitSwap && limitSwapBuyAmount ? USwapNumber.fromBigInt(BigInt(limitSwapBuyAmount), 8) : quote && new USwapNumber(quote.expectedBuyAmount)
@@ -44,6 +47,7 @@ export const SwapInputTo = ({ priceImpact }: { priceImpact?: USwapNumber }) => {
     openDialog(SwapSelectAsset, {
       selected: assetTo,
       onSelectAsset: asset => {
+        startPrivateSendOnSamePick(asset, 'to')
         setAssetTo(asset)
       }
     })
@@ -53,7 +57,7 @@ export const SwapInputTo = ({ priceImpact }: { priceImpact?: USwapNumber }) => {
     <div className="bg-swap-bloc rounded-15 border p-7">
       <div className="mb-3 flex items-center justify-between">
         <label htmlFor="swap-buy-amount" className="text-txt-label-small font-semibold">
-          {t('input.buy')}
+          {buyLabel}
         </label>
         <SwapQuoteTimer quote={quote} isLoading={isLoading} refetch={refetch} />
       </div>
@@ -79,19 +83,21 @@ export const SwapInputTo = ({ priceImpact }: { priceImpact?: USwapNumber }) => {
             )}
           </div>
         </div>
-        <DropdownCoinButton aria-label={`${t('selectAsset.title')}: ${t('input.buy')}`} open={isSelectOpen} onClick={onClick}>
-          <span className="flex items-center gap-2">
-            <AssetIcon asset={assetTo} />
-            <span className="flex w-16 flex-col items-start gap-1 text-left">
-              <span className="inline-block w-full truncate text-base leading-none font-medium">
-                {assetTo ? assetTo.ticker : <Skeleton className="h-4 w-12" />}
-              </span>
-              <span className="text-icon-btn-default inline-block w-full truncate text-xs leading-none font-medium">
-                {assetTo?.chain ? chainLabel(assetTo.chain) : <Skeleton className="h-3 w-16" />}
+        {!isPrivateSend && (
+          <DropdownCoinButton aria-label={`${t('selectAsset.title')}: ${buyLabel}`} open={isSelectOpen} onClick={onClick}>
+            <span className="flex items-center gap-2">
+              <AssetIcon asset={assetTo} />
+              <span className="flex w-16 flex-col items-start gap-1 text-left">
+                <span className="inline-block w-full truncate text-base leading-none font-medium">
+                  {assetTo ? assetTo.ticker : <Skeleton className="h-4 w-12" />}
+                </span>
+                <span className="text-icon-btn-default inline-block w-full truncate text-xs leading-none font-medium">
+                  {assetTo?.chain ? chainLabel(assetTo.chain) : <Skeleton className="h-3 w-16" />}
+                </span>
               </span>
             </span>
-          </span>
-        </DropdownCoinButton>
+          </DropdownCoinButton>
+        )}
       </div>
     </div>
   )

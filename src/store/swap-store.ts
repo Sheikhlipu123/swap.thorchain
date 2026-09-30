@@ -1,13 +1,20 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { Asset } from '@/components/swap/asset'
-import { useLimitSwapStore } from '@/store/limit-swap-store'
+import { isPrivateSendMode, useLimitSwapStore } from '@/store/limit-swap-store'
 
 const INITIAL_AMOUNT_FROM = 1
 
-// Picking the asset already on the other side flips the pair, except on the PRIVATE tab: Houdini
-// routes an asset to itself (BTC -> BTC, a "private send"), the native protocols do not.
-const flipsOnSameAsset = () => !useLimitSwapStore.getState().isPrivateSwap
+const isSending = () => isPrivateSendMode(useLimitSwapStore.getState())
+
+// On the PRIVATE tab picking the other side's asset switches Send on instead of flipping. Pickers
+// only: the URL and tab-switch code pass through momentary same-asset pairs.
+export const startPrivateSendOnSamePick = (picked: Asset, side: 'from' | 'to') => {
+  const { isPrivateSwap, setIsPrivateSend } = useLimitSwapStore.getState()
+  const { assetFrom, assetTo } = useSwapStore.getState()
+  const other = side === 'from' ? assetTo : assetFrom
+  if (isPrivateSwap && picked.identifier === other?.identifier) setIsPrivateSend(true)
+}
 
 export const INITIAL_SLIPPAGE = 1
 export const INITIAL_CUSTOM_INTERVAL = 0
@@ -50,18 +57,20 @@ export const useSwapStore = create<SwapState>()(
 
       setAssetFrom: asset => {
         const { assetFrom, assetTo } = get()
+        if (isSending()) return set({ assetFrom: asset, assetTo: asset })
 
         set({
           assetFrom: asset,
-          assetTo: flipsOnSameAsset() && assetTo?.identifier === asset.identifier ? assetFrom : assetTo
+          assetTo: assetTo?.identifier === asset.identifier ? assetFrom : assetTo
         })
       },
 
       setAssetTo: asset => {
         const { assetFrom, assetTo } = get()
+        if (isSending()) return set({ assetFrom: asset, assetTo: asset })
 
         set({
-          assetFrom: flipsOnSameAsset() && assetFrom?.identifier === asset.identifier ? assetTo : assetFrom,
+          assetFrom: assetFrom?.identifier === asset.identifier ? assetTo : assetFrom,
           assetTo: asset
         })
       },

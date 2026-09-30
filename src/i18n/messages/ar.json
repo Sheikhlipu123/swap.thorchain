@@ -59,6 +59,8 @@
     "input": {
       "sell": "بيع",
       "buy": "شراء",
+      "send": "إرسال",
+      "recipientGets": "يستلم المستلِم",
       "clear": "مسح"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "أدخل السعر المحدد",
       "enterLimitOrder": "أدخل الأمر المحدد",
       "swap": "تبادل",
+      "send": "إرسال",
       "connectWallet": "ربط محفظة {chain}",
       "insufficientBalance": "الرصيد غير كافٍ",
       "approve": "الموافقة على {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "تأكيد الأمر المحدد",
       "titleSwap": "تأكيد التبادل",
+      "titlePrivateSend": "تأكيد الإرسال الخاص",
       "notAvailable": "n/a",
       "swapArrowLabel": "تبادل",
+      "sendArrowLabel": "إرسال",
       "chainAddress": "عنوان {chain}",
       "sourceAddressTooltip": "عنوان المحفظة التي تُرسِل الأموال لهذا التبادل.",
+      "sourceAddressTooltipSend": "عنوان المحفظة التي ترسل الأموال.",
       "destinationAddressTooltip": "عنوان المحفظة التي ستستلم الأموال المُبادَلة.",
+      "destinationAddressTooltipSend": "عنوان المحفظة التي ستستلم الأموال، دون أي ارتباط على السلسلة بالمحفظة المُرسِلة.",
       "refundAddress": "عنوان الاسترداد",
       "refundAddressTooltip": "العنوان الذي ستُعاد إليه الأموال إذا تعذّر إتمام التبادل.",
+      "refundAddressTooltipSend": "العنوان الذي ستُعاد إليه الأموال إذا تعذّر إتمام الإرسال.",
       "limitPrice": "السعر المحدد",
       "limitPriceTooltip": "السعر لكل وحدة الذي سيُنفَّذ عنده أمرك المحدد. لن يُنفَّذ الأمر إلا عندما يبلغ السوق هذا السعر.",
       "targetAmount": "المبلغ المستهدف",
@@ -279,8 +287,13 @@
       "save": "حفظ"
     },
     "private": {
-      "disclaimer": "المبادلة الخاصة مدعومة من Houdini Swap. <link>اقرأ المزيد</link>.",
-      "acknowledge": "أوافق على <link>شروط الخدمة</link>."
+      "modeSwap": "Swap",
+      "modeSend": "إرسال",
+      "modeSwapHint": "إلى أصل آخر، بخصوصية",
+      "modeSendHint": "إلى محفظة أخرى، بخصوصية",
+      "disclaimer": "التبديل الخاص مدعوم بواسطة <link>Houdini Swap</link>",
+      "disclaimerSend": "الإرسال الخاص مدعوم بواسطة <link>Houdini Swap</link>",
+      "acknowledge": "أوافق على <link>شروط الخدمة</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "إيداع {ticker}",
       "send": "إرسال {ticker}",
+      "privateRoute": "توجيه {ticker} بشكل خاص",
       "swap": "تبادل {from} إلى {to}"
     }
   }

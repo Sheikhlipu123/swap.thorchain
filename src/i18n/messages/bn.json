@@ -59,6 +59,8 @@
     "input": {
       "sell": "বিক্রি",
       "buy": "ক্রয়",
+      "send": "পাঠান",
+      "recipientGets": "প্রাপক পাবেন",
       "clear": "মুছুন"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "লিমিট মূল্য লিখুন",
       "enterLimitOrder": "লিমিট অর্ডার লিখুন",
       "swap": "সোয়াপ করুন",
+      "send": "পাঠান",
       "connectWallet": "{chain} ওয়ালেট সংযুক্ত করুন",
       "insufficientBalance": "অপর্যাপ্ত ব্যালেন্স",
       "approve": "{ticker} অনুমোদন করুন"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "লিমিট অর্ডার নিশ্চিত করুন",
       "titleSwap": "সোয়াপ নিশ্চিত করুন",
+      "titlePrivateSend": "প্রাইভেট সেন্ড নিশ্চিত করুন",
       "notAvailable": "n/a",
       "swapArrowLabel": "সোয়াপ",
+      "sendArrowLabel": "পাঠান",
       "chainAddress": "{chain} ঠিকানা",
       "sourceAddressTooltip": "এই সোয়াপের জন্য তহবিল পাঠানো ওয়ালেট ঠিকানা।",
+      "sourceAddressTooltipSend": "যে ওয়ালেট ঠিকানা থেকে তহবিল পাঠানো হচ্ছে।",
       "destinationAddressTooltip": "যে ওয়ালেট ঠিকানা সোয়াপ করা তহবিল গ্রহণ করবে।",
+      "destinationAddressTooltipSend": "যে ওয়ালেট ঠিকানা তহবিল গ্রহণ করবে, প্রেরণকারী ওয়ালেটের সাথে কোনো অন-চেইন সংযোগ ছাড়াই।",
       "refundAddress": "রিফান্ড ঠিকানা",
       "refundAddressTooltip": "সোয়াপ সম্পূর্ণ করা না গেলে যে ঠিকানায় তহবিল ফেরত দেওয়া হবে।",
+      "refundAddressTooltipSend": "যে ঠিকানায় তহবিল ফেরত পাঠানো হবে যদি প্রেরণ সম্পন্ন করা না যায়।",
       "limitPrice": "লিমিট মূল্য",
       "limitPriceTooltip": "যে মূল্যে আপনার লিমিট অর্ডার কার্যকর হবে তা প্রতি ইউনিট হিসেবে। বাজার এই মূল্যে পৌঁছালেই কেবল অর্ডারটি পূরণ হবে।",
       "targetAmount": "লক্ষ্য পরিমাণ",
@@ -279,8 +287,13 @@
       "save": "সংরক্ষণ করুন"
     },
     "private": {
-      "disclaimer": "Private Swap পরিচালিত হয় Houdini Swap দ্বারা। <link>আরও পড়ুন</link>।",
-      "acknowledge": "আমি <link>পরিষেবার শর্তাবলী</link> মেনে নিচ্ছি।"
+      "modeSwap": "Swap",
+      "modeSend": "পাঠান",
+      "modeSwapHint": "অন্য অ্যাসেটে, গোপনীয়ভাবে",
+      "modeSendHint": "অন্য ওয়ালেটে, গোপনীয়ভাবে",
+      "disclaimer": "Private Swap পরিচালিত হয় <link>Houdini Swap</link> দ্বারা",
+      "disclaimerSend": "Private Send পরিচালিত হয় <link>Houdini Swap</link> দ্বারা",
+      "acknowledge": "আমি <link>পরিষেবার শর্তাবলী</link> মেনে নিচ্ছি"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} ডিপোজিট করুন",
       "send": "{ticker} পাঠান",
+      "privateRoute": "{ticker} গোপনে রুট করুন",
       "swap": "{from} থেকে {to} সোয়াপ করুন"
     }
   }

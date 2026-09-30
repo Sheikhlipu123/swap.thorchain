@@ -59,6 +59,8 @@
     "input": {
       "sell": "Sell",
       "buy": "Buy",
+      "send": "Send",
+      "recipientGets": "Wetin Receiver Go Get",
       "clear": "Clear"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Put limit price",
       "enterLimitOrder": "Put Limit Order",
       "swap": "Swap",
+      "send": "Send",
       "connectWallet": "Connect {chain} Wallet",
       "insufficientBalance": "Balance No Reach",
       "approve": "Approve {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Confam Limit Order",
       "titleSwap": "Confam Swap",
+      "titlePrivateSend": "Confirm Private Send",
       "notAvailable": "n/a",
       "swapArrowLabel": "swap",
+      "sendArrowLabel": "send",
       "chainAddress": "{chain} Address",
       "sourceAddressTooltip": "Di wallet address wey dey send di money for dis swap.",
+      "sourceAddressTooltipSend": "Na di wallet address wey dey send di money.",
       "destinationAddressTooltip": "Di wallet address wey go receive di money wey you swap.",
+      "destinationAddressTooltipSend": "Na di wallet address wey go collect di money, e no get any on-chain link to di wallet wey dey send.",
       "refundAddress": "Refund Address",
       "refundAddressTooltip": "Di address where dem go send your money back if di swap no fit complete.",
+      "refundAddressTooltipSend": "Na di address where dem go return di money if di send no fit complete.",
       "limitPrice": "Limit Price",
       "limitPriceTooltip": "Di price per unit wey your limit order go execute. Di order go only fill when market reach dis price.",
       "targetAmount": "Target Amount",
@@ -279,8 +287,13 @@
       "save": "Save"
     },
     "private": {
-      "disclaimer": "Na Houdini Swap dey power Private Swap. <link>Sabi More</link>.",
-      "acknowledge": "I gree with di <link>Terms of Service</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Send",
+      "modeSwapHint": "Go anoda asset, for hide-hide",
+      "modeSendHint": "Go anoda wallet, for hide-hide",
+      "disclaimer": "Private Swap dey run on <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send dey run on <link>Houdini Swap</link>",
+      "acknowledge": "I gree with di <link>Terms of Service</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Deposit {ticker}",
       "send": "Send {ticker}",
+      "privateRoute": "Carry {ticker} pass private road",
       "swap": "Swap {from} to {to}"
     }
   }

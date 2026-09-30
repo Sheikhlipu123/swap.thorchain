@@ -59,6 +59,8 @@
     "input": {
       "sell": "Jual",
       "buy": "Beli",
+      "send": "Kirim",
+      "recipientGets": "Penerima Mendapat",
       "clear": "Bersihkan"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "Masukkan harga limit",
       "enterLimitOrder": "Masukkan limit order",
       "swap": "Tukar",
+      "send": "Kirim",
       "connectWallet": "Hubungkan dompet {chain}",
       "insufficientBalance": "Saldo tidak mencukupi",
       "approve": "Setujui {ticker}"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Konfirmasi limit order",
       "titleSwap": "Konfirmasi swap",
+      "titlePrivateSend": "Konfirmasi Pengiriman Pribadi",
       "notAvailable": "n/a",
       "swapArrowLabel": "tukar",
+      "sendArrowLabel": "kirim",
       "chainAddress": "Alamat {chain}",
       "sourceAddressTooltip": "Alamat dompet yang mengirim dana untuk swap ini.",
+      "sourceAddressTooltipSend": "Alamat dompet yang mengirim dana.",
       "destinationAddressTooltip": "Alamat dompet yang akan menerima dana hasil swap.",
+      "destinationAddressTooltipSend": "Alamat dompet yang akan menerima dana, tanpa keterkaitan on-chain dengan dompet pengirim.",
       "refundAddress": "Alamat pengembalian",
       "refundAddressTooltip": "Alamat tempat dana akan dikembalikan jika swap tidak dapat diselesaikan.",
+      "refundAddressTooltipSend": "Alamat tujuan pengembalian dana jika pengiriman tidak dapat diselesaikan.",
       "limitPrice": "Harga limit",
       "limitPriceTooltip": "Harga per unit saat limit order Anda akan dieksekusi. Order hanya akan terisi ketika pasar mencapai harga ini.",
       "targetAmount": "Jumlah target",
@@ -279,8 +287,13 @@
       "save": "Simpan"
     },
     "private": {
-      "disclaimer": "Private Swap didukung oleh Houdini Swap. <link>Selengkapnya</link>.",
-      "acknowledge": "Saya menerima <link>Ketentuan Layanan</link>."
+      "modeSwap": "Swap",
+      "modeSend": "Kirim",
+      "modeSwapHint": "Ke aset lain, secara privat",
+      "modeSendHint": "Ke dompet lain, secara privat",
+      "disclaimer": "Private Swap didukung oleh <link>Houdini Swap</link>",
+      "disclaimerSend": "Private Send didukung oleh <link>Houdini Swap</link>",
+      "acknowledge": "Saya menyetujui <link>Ketentuan Layanan</link>"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "Deposit {ticker}",
       "send": "Kirim {ticker}",
+      "privateRoute": "Rutekan {ticker} secara privat",
       "swap": "Tukar {from} ke {to}"
     }
   }

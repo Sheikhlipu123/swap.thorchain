@@ -59,6 +59,8 @@
     "input": {
       "sell": "ویچو",
       "buy": "خریدو",
+      "send": "بھیجو",
+      "recipientGets": "لین والے نوں ملسی",
       "clear": "صاف کرو"
     },
     "balance": {
@@ -74,6 +76,7 @@
       "enterLimitPrice": "limit قیمت پاؤ",
       "enterLimitOrder": "Limit آرڈر پاؤ",
       "swap": "تبادلہ کرو",
+      "send": "بھیجو",
       "connectWallet": "{chain} والٹ کنیکٹ کرو",
       "insufficientBalance": "بیلنس کافی نئیں",
       "approve": "{ticker} منظور کرو"
@@ -95,13 +98,18 @@
     "confirm": {
       "titleLimit": "Limit آرڈر دی تصدیق کرو",
       "titleSwap": "تبادلے دی تصدیق کرو",
+      "titlePrivateSend": "پرائیویٹ سینڈ دی تصدیق کرو",
       "notAvailable": "n/a",
       "swapArrowLabel": "تبادلہ",
+      "sendArrowLabel": "بھیجو",
       "chainAddress": "{chain} پتہ",
       "sourceAddressTooltip": "اوہ والٹ پتہ جیہڑا ایس تبادلے لئی رقم بھیجدا اے۔",
+      "sourceAddressTooltipSend": "اوہ والٹ پتہ جیہڑا رقم بھیج رہیا اے۔",
       "destinationAddressTooltip": "اوہ والٹ پتہ جیہڑا تبادلہ ہوئی رقم وصول کرے گا۔",
+      "destinationAddressTooltipSend": "اوہ والٹ پتہ جیہڑا رقم وصول کرے گا، تے جیہدا بھیجن والے والٹ نال کوئی آن چین تعلق نئیں ہوندا۔",
       "refundAddress": "واپسی والا پتہ",
       "refundAddressTooltip": "اوہ پتہ جِتھے تبادلہ مکمل نہ ہوݨ دی صورت وچ رقم واپس کیتی جائے گی۔",
+      "refundAddressTooltipSend": "اوہ پتہ جِتھے رقم واپس کیتی جائے گی جے بھیجنا مکمل نہ ہو سکیا۔",
       "limitPrice": "Limit قیمت",
       "limitPriceTooltip": "اوہ فی یونٹ قیمت جِتھے تُہاݙا limit آرڈر چلے گا۔ آرڈر صرف اوسے ویلے پورا ہوے گا جدوں مارکیٹ ایس قیمت تے پہنچے گی۔",
       "targetAmount": "ٹارگٹ رقم",
@@ -279,8 +287,13 @@
       "save": "محفوظ کرو"
     },
     "private": {
-      "disclaimer": "پرائیویٹ سویپ Houdini Swap دے نال چلدا اے۔ <link>ہور پڑھو</link>۔",
-      "acknowledge": "میں <link>سروس دیاں شرطاں</link> منظور کردا آں۔"
+      "modeSwap": "Swap",
+      "modeSend": "بھیجو",
+      "modeSwapHint": "کسے ہور اثاثے وچ، نجی طور تے",
+      "modeSendHint": "کسے ہور والٹ وچ، نجی طور تے",
+      "disclaimer": "پرائیویٹ Swap نوں <link>Houdini Swap</link> چلاندا اے",
+      "disclaimerSend": "پرائیویٹ سینڈ نوں <link>Houdini Swap</link> چلاندا اے",
+      "acknowledge": "میں <link>سروس دیاں شرطاں</link> قبول کردا واں"
     }
   },
   "send": {
@@ -605,6 +618,7 @@
     "leg": {
       "deposit": "{ticker} ڈیپازٹ کرو",
       "send": "{ticker} بھیجو",
+      "privateRoute": "{ticker} نوں نجی طور تے روٹ کرو",
       "swap": "{from} نوں {to} وچ تبادلہ کرو"
     }
   }

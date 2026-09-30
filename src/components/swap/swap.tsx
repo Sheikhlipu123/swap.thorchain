@@ -15,6 +15,7 @@ import { SwapInputFrom } from '@/components/swap/swap-input-from'
 import { SwapInputTo } from '@/components/swap/swap-input-to'
 import { SwapLimit } from '@/components/swap/swap-limit'
 import { SwapPrivateDisclaimer } from '@/components/swap/swap-private-disclaimer'
+import { SwapPrivateMode } from '@/components/swap/swap-private-mode'
 import { SwapSettings } from '@/components/swap/swap-settings'
 import { SwapToggleAssets } from '@/components/swap/swap-toggle-assets'
 import { isAssetInMode, useAssets } from '@/hooks/use-assets'
@@ -29,7 +30,7 @@ import { urlBuyAsset, useUrlParams } from '@/hooks/use-url-params'
 import { useSelectedAccount } from '@/hooks/use-wallets'
 import { resolvePriceImpact } from '@/lib/swap-helpers'
 import { cn } from '@/lib/utils'
-import { useIsLimitSwap, useIsPrivateSwap, useSetIsLimitSwap, useSetIsPrivateSwap } from '@/store/limit-swap-store'
+import { useIsLimitSwap, useIsPrivateSend, useIsPrivateSwap, useSetIsLimitSwap, useSetIsPrivateSwap } from '@/store/limit-swap-store'
 import { useSwapStore } from '@/store/swap-store'
 
 type SwapMode = 'swap' | 'limit' | 'private'
@@ -47,6 +48,8 @@ export const Swap = () => {
   const setIsLimitSwap = useSetIsLimitSwap()
   const isPrivateSwap = useIsPrivateSwap()
   const setIsPrivateSwap = useSetIsPrivateSwap()
+  const isPrivateSend = useIsPrivateSend()
+  const pairKey = useSwapStore(state => `${state.assetFrom?.identifier}|${state.assetTo?.identifier}`)
   const { assets } = useAssets()
   const { valueFrom } = useSwap()
   const { quote } = useQuote()
@@ -74,7 +77,7 @@ export const Swap = () => {
 
   // Each tab has its own asset list (the native protocols' or Houdini's). Switching tabs keeps a
   // selection both list and replaces one only the other does, so the form never quotes an asset
-  // the current provider does not know.
+  // the current provider does not know. Leaving a private send restores the URL's buy asset.
   useEffect(() => {
     if (!assets?.length) return
 
@@ -83,20 +86,25 @@ export const Swap = () => {
     const { assetFrom, assetTo } = useSwapStore.getState()
 
     const inMode = (asset?: Asset) => !!asset && isAssetInMode(asset, isPrivateSwap)
-    const replacement = (fallback: string, other?: Asset) =>
-      assets.find(a => a.identifier === fallback && inMode(a) && a.identifier !== other?.identifier) ??
-      assets.find(a => inMode(a) && a.identifier !== other?.identifier)
+    // Defaults before "any asset", so a fallback clashing with `other` doesn't land on the list's first entry.
+    const replacement = (fallback: string, other?: Asset) => {
+      const usable = (a: Asset) => inMode(a) && a.identifier !== other?.identifier
+      for (const id of [fallback, DEFAULT_BUY, DEFAULT_SELL]) {
+        const match = assets.find(a => a.identifier === id && usable(a))
+        if (match) return match
+      }
+      return assets.find(usable)
+    }
 
-    const nextFrom = inMode(assetFrom) ? assetFrom : replacement(DEFAULT_SELL, assetTo)
-    // A same-asset pair (a private send) is only a pair on the PRIVATE tab; leaving it restores the URL's buy asset.
-    const keepTo = inMode(assetTo) && (isPrivateSwap || assetTo?.identifier !== nextFrom?.identifier)
-    const nextTo = keepTo ? assetTo : replacement(urlBuyAsset(assets)?.identifier ?? DEFAULT_BUY, nextFrom)
+    const nextFrom = inMode(assetFrom) ? assetFrom : replacement(DEFAULT_SELL, isPrivateSend ? undefined : assetTo)
+    const keepTo = inMode(assetTo) && assetTo?.identifier !== nextFrom?.identifier
+    const nextTo = isPrivateSend ? nextFrom : keepTo ? assetTo : replacement(urlBuyAsset(assets)?.identifier ?? DEFAULT_BUY, nextFrom)
 
     if (nextFrom && nextFrom !== assetFrom) setAssetFrom(nextFrom)
     if (nextTo && nextTo !== assetTo) setAssetTo(nextTo)
-    // Runs on a tab switch or once the lists arrive; a selection made in-tab is already in mode.
+    // Also reruns on pair changes: a saved same-asset pair rehydrates after the first run.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPrivateSwap, assets])
+  }, [isPrivateSwap, isPrivateSend, assets, pairKey])
 
   const memolessAsset: MemolessAsset | undefined = useMemo(() => {
     if (!memolessAssets || !assetFrom || !quote || !(quote.providers[0] === 'THORCHAIN' || quote.providers[0] === 'THORCHAIN_STREAMING')) return
@@ -143,8 +151,9 @@ export const Swap = () => {
         </div>
 
         <div className="bg-modal rounded-20 relative space-y-1.25 border p-2.5">
+          {isPrivateSwap && <SwapPrivateMode />}
           <SwapInputFrom />
-          <SwapToggleAssets />
+          {!isPrivateSend && <SwapToggleAssets />}
           <SwapInputTo priceImpact={priceImpact} />
           {isLimitSwap && <SwapLimit quote={quote} />}
           {isPrivateSwap && <SwapPrivateDisclaimer />}

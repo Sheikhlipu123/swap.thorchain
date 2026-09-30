@@ -6,7 +6,7 @@ import { AppConfig } from '@/config'
 import { useAssetFrom, useAssetTo, useCustomInterval, useCustomQuantity, useSlippage, useSwap } from '@/hooks/use-swap'
 import { getQuotes } from '@/lib/api'
 import { resolveQuoteError } from '@/lib/errors'
-import { useIsPrivateSwap } from '@/store/private-swap-store'
+import { useIsPrivateSend, useIsPrivateSwap } from '@/store/private-swap-store'
 
 type UseQuote = {
   isLoading: boolean
@@ -23,6 +23,9 @@ export const useQuote = (): UseQuote => {
   const customInterval = useCustomInterval()
   const customQuantity = useCustomQuantity()
   const isPrivateSwap = useIsPrivateSwap()
+  const isPrivateSend = useIsPrivateSend()
+  // Right after a tab/mode switch the pair lags a render behind (Swap fixes it in an effect); don't quote it.
+  const pairMatchesMode = isPrivateSend === (!!assetFrom && assetFrom.identifier === assetTo?.identifier)
 
   const queryKey = [
     'quote',
@@ -75,7 +78,7 @@ export const useQuote = (): UseQuote => {
         )
       })
     },
-    enabled: !!(!valueFrom.eqValue(0) && assetFrom?.identifier && assetTo?.identifier),
+    enabled: !!(!valueFrom.eqValue(0) && assetFrom?.identifier && assetTo?.identifier && pairMatchesMode),
     retry: false,
     refetchOnMount: false
   })
