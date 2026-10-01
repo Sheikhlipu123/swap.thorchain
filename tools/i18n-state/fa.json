@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "واریز {ticker}"],
   "tx.leg.send": ["Send {ticker}", "ارسال {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "مسیریابی {ticker} به‌صورت خصوصی"],
-  "tx.leg.swap": ["Swap {from} to {to}", "تبادل {from} به {to}"]
+  "tx.leg.swap": ["Swap {from} to {to}", "تبادل {from} به {to}"],
+  "footer.support": ["Support", "پشتیبانی"]
 }

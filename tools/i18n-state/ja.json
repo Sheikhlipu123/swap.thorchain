@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} を預け入れ"],
   "tx.leg.send": ["Send {ticker}", "{ticker} を送信"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} をプライベートにルーティング"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from} を {to} にスワップ"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from} を {to} にスワップ"],
+  "footer.support": ["Support", "サポート"]
 }

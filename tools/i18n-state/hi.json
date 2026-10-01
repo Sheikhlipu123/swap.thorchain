@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} जमा करें"],
   "tx.leg.send": ["Send {ticker}", "{ticker} भेजें"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} को निजी तौर पर रूट करें"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from} को {to} में स्वैप करें"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from} को {to} में स्वैप करें"],
+  "footer.support": ["Support", "सहायता"]
 }

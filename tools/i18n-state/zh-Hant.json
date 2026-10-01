@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "存入{ticker}"],
   "tx.leg.send": ["Send {ticker}", "發送{ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "以私密方式轉送 {ticker}"],
-  "tx.leg.swap": ["Swap {from} to {to}", "將{from}兌換為{to}"]
+  "tx.leg.swap": ["Swap {from} to {to}", "將{from}兌換為{to}"],
+  "footer.support": ["Support", "支援"]
 }

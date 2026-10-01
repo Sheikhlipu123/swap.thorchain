@@ -59,12 +59,12 @@ export function FooterContent({ className }: { className?: string }) {
               <button
                 type="button"
                 onClick={toggleChatwoot}
-                aria-label={chatOpen ? t('bug.close') : t('liveChat')}
                 aria-expanded={chatOpen}
                 title={chatOpen ? t('bug.close') : t('liveChat')}
-                className="hover:text-txt-high-contrast flex cursor-pointer items-center transition-colors"
+                className="hover:text-txt-high-contrast flex cursor-pointer items-center gap-1 transition-colors"
               >
                 {chatOpen ? <X className="size-4" /> : <MessageCircle className="size-4" />}
+                {t('support')}
               </button>
             </>
           )}

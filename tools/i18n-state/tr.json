@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} Yatır"],
   "tx.leg.send": ["Send {ticker}", "{ticker} Gönder"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} gizli olarak yönlendir"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from} → {to} Takas"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from} → {to} Takas"],
+  "footer.support": ["Support", "Destek"]
 }

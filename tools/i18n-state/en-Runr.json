@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "ᛞᛖᛈᛟᛊᛁᛏ {ticker}"],
   "tx.leg.send": ["Send {ticker}", "ᛊᛖᚾᛞ {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "ᚱᛟᚢᛏᛖ {ticker} ᛈᚱᛁᚹᚨᛏᛖᛚᛁ"],
-  "tx.leg.swap": ["Swap {from} to {to}", "ᛊᚹᚨᛈ {from} ᛏᛟ {to}"]
+  "tx.leg.swap": ["Swap {from} to {to}", "ᛊᚹᚨᛈ {from} ᛏᛟ {to}"],
+  "footer.support": ["Support", "ᛊᚢᛈᛈᛟᚱᛏ"]
 }

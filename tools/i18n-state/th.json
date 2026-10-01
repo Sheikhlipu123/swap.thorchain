@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "ฝาก {ticker}"],
   "tx.leg.send": ["Send {ticker}", "ส่ง {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "กำหนดเส้นทาง {ticker} แบบส่วนตัว"],
-  "tx.leg.swap": ["Swap {from} to {to}", "แลกเปลี่ยน {from} เป็น {to}"]
+  "tx.leg.swap": ["Swap {from} to {to}", "แลกเปลี่ยน {from} เป็น {to}"],
+  "footer.support": ["Support", "ฝ่ายสนับสนุน"]
 }

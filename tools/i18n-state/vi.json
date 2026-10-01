@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "Nạp {ticker}"],
   "tx.leg.send": ["Send {ticker}", "Gửi {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "Định tuyến {ticker} riêng tư"],
-  "tx.leg.swap": ["Swap {from} to {to}", "Hoán đổi {from} sang {to}"]
+  "tx.leg.swap": ["Swap {from} to {to}", "Hoán đổi {from} sang {to}"],
+  "footer.support": ["Support", "Hỗ trợ"]
 }

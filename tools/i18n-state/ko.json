@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} 입금"],
   "tx.leg.send": ["Send {ticker}", "{ticker} 보내기"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} 비공개 라우팅"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from}을(를) {to}(으)로 스왑"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from}을(를) {to}(으)로 스왑"],
+  "footer.support": ["Support", "지원"]
 }

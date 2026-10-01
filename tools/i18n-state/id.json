@@ -514,5 +514,6 @@
   "tx.leg.deposit": ["Deposit {ticker}", "Deposit {ticker}"],
   "tx.leg.send": ["Send {ticker}", "Kirim {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "Rutekan {ticker} secara privat"],
-  "tx.leg.swap": ["Swap {from} to {to}", "Tukar {from} ke {to}"]
+  "tx.leg.swap": ["Swap {from} to {to}", "Tukar {from} ke {to}"],
+  "footer.support": ["Support", "Dukungan"]
 }
