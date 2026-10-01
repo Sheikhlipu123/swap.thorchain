@@ -299,6 +299,10 @@
   "send": {
     "title": "Отправить",
     "send": "Отправить",
+    "sendPrivately": "Отправить приватно",
+    "tab": {
+      "privateSend": "Приватная отправка"
+    },
     "amount": "Сумма",
     "clear": "Очистить",
     "balanceLabel": "Баланс:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Недействительный адрес {chain}",
       "noRuneBalance": "Баланс RUNE не найден.",
       "noTcyBalance": "Баланс TCY не найден.",
-      "noBalance": "Баланс {asset} не найден."
+      "noBalance": "Баланс {asset} не найден.",
+      "privateUnsupported": "{ticker} в сети {chain} нельзя отправить приватно. Выберите другую монету.",
+      "privateOrderFailed": "Не удалось создать заявку на приватную отправку. Пожалуйста, попробуйте ещё раз."
     },
     "beta": {
       "title": "Это бета-функция",

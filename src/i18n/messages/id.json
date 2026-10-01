@@ -299,6 +299,10 @@
   "send": {
     "title": "Kirim",
     "send": "Kirim",
+    "sendPrivately": "Kirim Secara Privat",
+    "tab": {
+      "privateSend": "Kirim Privat"
+    },
     "amount": "Jumlah",
     "clear": "Bersihkan",
     "balanceLabel": "Saldo:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Alamat {chain} tidak valid",
       "noRuneBalance": "Saldo RUNE tidak ditemukan.",
       "noTcyBalance": "Saldo TCY tidak ditemukan.",
-      "noBalance": "Saldo {asset} tidak ditemukan."
+      "noBalance": "Saldo {asset} tidak ditemukan.",
+      "privateUnsupported": "{ticker} di {chain} tidak dapat dikirim secara privat. Pilih koin lain.",
+      "privateOrderFailed": "Order kirim privat tidak dapat dibuat. Silakan coba lagi."
     },
     "beta": {
       "title": "Ini adalah fitur beta",

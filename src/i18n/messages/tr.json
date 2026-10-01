@@ -299,6 +299,10 @@
   "send": {
     "title": "Gönder",
     "send": "Gönder",
+    "sendPrivately": "Gizli Gönder",
+    "tab": {
+      "privateSend": "Gizli Gönderim"
+    },
     "amount": "Tutar",
     "clear": "Temizle",
     "balanceLabel": "Bakiye:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Geçersiz {chain} adresi",
       "noRuneBalance": "RUNE bakiyesi bulunamadı.",
       "noTcyBalance": "TCY bakiyesi bulunamadı.",
-      "noBalance": "{asset} bakiyesi bulunamadı."
+      "noBalance": "{asset} bakiyesi bulunamadı.",
+      "privateUnsupported": "{chain} ağındaki {ticker} gizli olarak gönderilemez. Lütfen başka bir coin seçin.",
+      "privateOrderFailed": "Gizli gönderim emri oluşturulamadı. Lütfen tekrar deneyin."
     },
     "beta": {
       "title": "Bu bir beta özelliğidir",

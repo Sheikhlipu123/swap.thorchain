@@ -9,11 +9,13 @@ const externalLink = (href: string) => (chunks: ReactNode) => (
   </a>
 )
 
-export const SwapPrivateDisclaimer = () => {
+// `send` overrides the swap form's mode, for the wallet Send dialog's Private Send tab.
+export const SwapPrivateDisclaimer = ({ send }: { send?: boolean }) => {
   const t = useTranslations('swap.private')
   const acknowledged = usePrivateSwapAcknowledged()
   const setAcknowledged = useSetPrivateSwapAcknowledged()
-  const isSend = useIsPrivateSend()
+  const isPrivateSend = useIsPrivateSend()
+  const isSend = send ?? isPrivateSend
 
   return (
     <div className="rounded-15 text-txt-label-small space-y-2 border p-5 text-sm">

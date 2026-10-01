@@ -299,6 +299,10 @@
   "send": {
     "title": "ᛊᛖᚾᛞ",
     "send": "ᛊᛖᚾᛞ",
+    "sendPrivately": "ᛊᛖᚾᛞ ᛈᚱᛁᚹᚨᛏᛖᛚᛁ",
+    "tab": {
+      "privateSend": "ᛈᚱᛁᚹᚨᛏᛖ ᛊᛖᚾᛞ"
+    },
     "amount": "ᚨᛗᛟᚢᚾᛏ",
     "clear": "ᚲᛚᛖᚨᚱ",
     "balanceLabel": "ᛒᚨᛚᚨᚾᚲᛖ:",
@@ -321,7 +325,9 @@
       "invalidAddress": "ᛁᚾᚹᚨᛚᛁᛞ {chain} ᚨᛞᛞᚱᛖᛊᛊ",
       "noRuneBalance": "ᚾᛟ ᚱᚢᚾᛖ ᛒᚨᛚᚨᚾᚲᛖ ᚠᛟᚢᚾᛞ.",
       "noTcyBalance": "ᚾᛟ ᛏᚲᛁ ᛒᚨᛚᚨᚾᚲᛖ ᚠᛟᚢᚾᛞ.",
-      "noBalance": "ᚾᛟ {asset} ᛒᚨᛚᚨᚾᚲᛖ ᚠᛟᚢᚾᛞ."
+      "noBalance": "ᚾᛟ {asset} ᛒᚨᛚᚨᚾᚲᛖ ᚠᛟᚢᚾᛞ.",
+      "privateUnsupported": "{ticker} ᛟᚾ {chain} ᚲᚨᚾ'ᛏ ᛒᛖ ᛊᛖᚾᛏ ᛈᚱᛁᚹᚨᛏᛖᛚᛁ. ᛈᛁᚲᚲ ᚨᚾᛟᚦᛖᚱ ᚲᛟᛁᚾ.",
+      "privateOrderFailed": "ᚦᛖ ᛈᚱᛁᚹᚨᛏᛖ ᛊᛖᚾᛞ ᛟᚱᛞᛖᚱ ᚲᛟᚢᛚᛞ ᚾᛟᛏ ᛒᛖ ᚲᚱᛖᚨᛏᛖᛞ. ᛈᛚᛖᚨᛊᛖ ᛏᚱᛁ ᚨᚷᚨᛁᚾ."
     },
     "beta": {
       "title": "ᚦᛁᛊ ᛁᛊ ᚨ ᛒᛖᛏᚨ ᚠᛖᚨᛏᚢᚱᛖ",

@@ -299,6 +299,10 @@
   "send": {
     "title": "发送",
     "send": "发送",
+    "sendPrivately": "私密发送",
+    "tab": {
+      "privateSend": "私密发送"
+    },
     "amount": "金额",
     "clear": "清除",
     "balanceLabel": "余额：",
@@ -321,7 +325,9 @@
       "invalidAddress": "无效的{chain}地址",
       "noRuneBalance": "未找到RUNE余额。",
       "noTcyBalance": "未找到TCY余额。",
-      "noBalance": "未找到{asset}余额。"
+      "noBalance": "未找到{asset}余额。",
+      "privateUnsupported": "{chain} 上的 {ticker} 无法私密发送。请选择其他币种。",
+      "privateOrderFailed": "无法创建私密发送订单，请重试。"
     },
     "beta": {
       "title": "这是一项测试功能",

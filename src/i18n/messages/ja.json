@@ -299,6 +299,10 @@
   "send": {
     "title": "送信",
     "send": "送信",
+    "sendPrivately": "プライベート送金",
+    "tab": {
+      "privateSend": "プライベート送金"
+    },
     "amount": "金額",
     "clear": "クリア",
     "balanceLabel": "残高:",
@@ -321,7 +325,9 @@
       "invalidAddress": "無効な{chain}アドレスです",
       "noRuneBalance": "RUNE残高が見つかりません。",
       "noTcyBalance": "TCY残高が見つかりません。",
-      "noBalance": "{asset}残高が見つかりません。"
+      "noBalance": "{asset}残高が見つかりません。",
+      "privateUnsupported": "{chain} の {ticker} はプライベート送金に対応していません。別のコインを選択してください。",
+      "privateOrderFailed": "プライベート送金の注文を作成できませんでした。もう一度お試しください。"
     },
     "beta": {
       "title": "これはベータ機能です",

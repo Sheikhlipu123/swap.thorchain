@@ -299,6 +299,10 @@
   "send": {
     "title": "ส่ง",
     "send": "ส่ง",
+    "sendPrivately": "ส่งแบบส่วนตัว",
+    "tab": {
+      "privateSend": "ส่งแบบส่วนตัว"
+    },
     "amount": "จำนวน",
     "clear": "ล้าง",
     "balanceLabel": "ยอดคงเหลือ:",
@@ -321,7 +325,9 @@
       "invalidAddress": "ที่อยู่ {chain} ไม่ถูกต้อง",
       "noRuneBalance": "ไม่พบยอดคงเหลือ RUNE",
       "noTcyBalance": "ไม่พบยอดคงเหลือ TCY",
-      "noBalance": "ไม่พบยอดคงเหลือ {asset}"
+      "noBalance": "ไม่พบยอดคงเหลือ {asset}",
+      "privateUnsupported": "{ticker} บน {chain} ไม่รองรับการส่งแบบส่วนตัว โปรดเลือกเหรียญอื่น",
+      "privateOrderFailed": "ไม่สามารถสร้างคำสั่งส่งแบบส่วนตัวได้ กรุณาลองใหม่อีกครั้ง"
     },
     "beta": {
       "title": "นี่คือฟีเจอร์เบต้า",

@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { USwapNumber } from '@tcswap/core'
 import { ProviderName } from '@tcswap/helpers'
+import { QuoteResponseRoute } from '@tcswap/helpers/api'
 import { useQuote } from '@/hooks/use-quote'
 import { useAssetFrom, useAssetTo } from '@/hooks/use-swap'
 import { getDexScreenerTokens, getMayaMidgardCacaoPrice, getMayaMidgardPools, getMidgardPools, getMidgardRunePrice } from '@/lib/api'
@@ -180,8 +181,14 @@ export const useHoudiniQuoteRates = (): { rateFrom?: USwapNumber; rateTo?: USwap
   const assetFrom = useAssetFrom()
   const assetTo = useAssetTo()
   const { quote } = useQuote()
-  const houdini = quote?.meta?.houdini
-  if (!houdini || quote.sellAsset !== assetFrom?.identifier || quote.buyAsset !== assetTo?.identifier) return {}
+  if (!quote || quote.sellAsset !== assetFrom?.identifier || quote.buyAsset !== assetTo?.identifier) return {}
+
+  return houdiniQuoteRates(quote)
+}
+
+export const houdiniQuoteRates = (quote: QuoteResponseRoute): { rateFrom?: USwapNumber; rateTo?: USwapNumber } => {
+  const houdini = quote.meta?.houdini
+  if (!houdini) return {}
 
   const perUnit = (usd: number | undefined, amount: string) => {
     const units = new USwapNumber(amount)

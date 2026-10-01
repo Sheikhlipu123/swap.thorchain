@@ -299,6 +299,10 @@
   "send": {
     "title": "إرسال",
     "send": "إرسال",
+    "sendPrivately": "ابعت بشكل خاص",
+    "tab": {
+      "privateSend": "إرسال خاص"
+    },
     "amount": "المبلغ",
     "clear": "مسح",
     "balanceLabel": "الرصيد:",
@@ -321,7 +325,9 @@
       "invalidAddress": "عنوان {chain} غير صالح",
       "noRuneBalance": "مفيش رصيد RUNE.",
       "noTcyBalance": "مفيش رصيد TCY.",
-      "noBalance": "مفيش رصيد {asset}."
+      "noBalance": "مفيش رصيد {asset}.",
+      "privateUnsupported": "{ticker} على {chain} مش ممكن يتبعت بشكل خاص. اختار عملة تانية.",
+      "privateOrderFailed": "مش قادرين ننشئ طلب الإرسال الخاص. من فضلك جرّب تاني."
     },
     "beta": {
       "title": "دي ميزة تجريبية",

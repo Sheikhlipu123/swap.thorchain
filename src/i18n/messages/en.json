@@ -299,6 +299,10 @@
   "send": {
     "title": "Send",
     "send": "Send",
+    "sendPrivately": "Send Privately",
+    "tab": {
+      "privateSend": "Private Send"
+    },
     "amount": "Amount",
     "clear": "Clear",
     "balanceLabel": "Balance:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Invalid {chain} address",
       "noRuneBalance": "No RUNE balance found.",
       "noTcyBalance": "No TCY balance found.",
-      "noBalance": "No {asset} balance found."
+      "noBalance": "No {asset} balance found.",
+      "privateUnsupported": "{ticker} on {chain} can't be sent privately. Pick another coin.",
+      "privateOrderFailed": "The private send order could not be created. Please try again."
     },
     "beta": {
       "title": "This is a beta feature",

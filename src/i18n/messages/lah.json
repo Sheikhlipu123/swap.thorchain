@@ -299,6 +299,10 @@
   "send": {
     "title": "بھیجو",
     "send": "بھیجو",
+    "sendPrivately": "نجی طور تے گھلو",
+    "tab": {
+      "privateSend": "نجی گھلاوا"
+    },
     "amount": "رقم",
     "clear": "صاف کرو",
     "balanceLabel": "بیلنس:",
@@ -321,7 +325,9 @@
       "invalidAddress": "غلط {chain} پتہ",
       "noRuneBalance": "کوئی RUNE بیلنس نئیں لبھیا۔",
       "noTcyBalance": "کوئی TCY بیلنس نئیں لبھیا۔",
-      "noBalance": "کوئی {asset} بیلنس نئیں لبھیا۔"
+      "noBalance": "کوئی {asset} بیلنس نئیں لبھیا۔",
+      "privateUnsupported": "{chain} تے {ticker} نجی طور تے نئیں گھلیا جا سکدا۔ کوئی ہور سکہ چُنو۔",
+      "privateOrderFailed": "نجی گھلاوے دا آرڈر نئیں بن سکیا۔ مہربانی کر کے فیر کوشش کرو۔"
     },
     "beta": {
       "title": "ایہ اِک بیٹا فیچر اے",

@@ -299,6 +299,10 @@
   "send": {
     "title": "보내기",
     "send": "보내기",
+    "sendPrivately": "비공개로 전송",
+    "tab": {
+      "privateSend": "비공개 전송"
+    },
     "amount": "금액",
     "clear": "지우기",
     "balanceLabel": "잔액:",
@@ -321,7 +325,9 @@
       "invalidAddress": "유효하지 않은 {chain} 주소",
       "noRuneBalance": "RUNE 잔액이 없습니다.",
       "noTcyBalance": "TCY 잔액이 없습니다.",
-      "noBalance": "{asset} 잔액이 없습니다."
+      "noBalance": "{asset} 잔액이 없습니다.",
+      "privateUnsupported": "{chain}의 {ticker}은(는) 비공개로 전송할 수 없습니다. 다른 코인을 선택하세요.",
+      "privateOrderFailed": "비공개 전송 주문을 생성하지 못했습니다. 다시 시도해 주세요."
     },
     "beta": {
       "title": "베타 기능입니다",

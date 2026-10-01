@@ -299,6 +299,10 @@
   "send": {
     "title": "بھیجیں",
     "send": "بھیجیں",
+    "sendPrivately": "نجی طور پر بھیجیں",
+    "tab": {
+      "privateSend": "نجی ترسیل"
+    },
     "amount": "رقم",
     "clear": "صاف کریں",
     "balanceLabel": "بیلنس:",
@@ -321,7 +325,9 @@
       "invalidAddress": "غلط {chain} پتہ",
       "noRuneBalance": "کوئی RUNE بیلنس نہیں ملا۔",
       "noTcyBalance": "کوئی TCY بیلنس نہیں ملا۔",
-      "noBalance": "کوئی {asset} بیلنس نہیں ملا۔"
+      "noBalance": "کوئی {asset} بیلنس نہیں ملا۔",
+      "privateUnsupported": "{chain} پر {ticker} کو نجی طور پر نہیں بھیجا جا سکتا۔ کوئی اور سکہ منتخب کریں۔",
+      "privateOrderFailed": "نجی ترسیل کا آرڈر نہیں بنایا جا سکا۔ براہِ کرم دوبارہ کوشش کریں۔"
     },
     "beta": {
       "title": "یہ ایک beta فیچر ہے",

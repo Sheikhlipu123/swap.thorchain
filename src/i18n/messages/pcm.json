@@ -299,6 +299,10 @@
   "send": {
     "title": "Send",
     "send": "Send",
+    "sendPrivately": "Send Am Private",
+    "tab": {
+      "privateSend": "Private Send"
+    },
     "amount": "Amount",
     "clear": "Clear",
     "balanceLabel": "Balance:",
@@ -321,7 +325,9 @@
       "invalidAddress": "{chain} address no correct",
       "noRuneBalance": "We no see any RUNE balance.",
       "noTcyBalance": "We no see any TCY balance.",
-      "noBalance": "We no see any {asset} balance."
+      "noBalance": "We no see any {asset} balance.",
+      "privateUnsupported": "You no fit send {ticker} for {chain} private. Abeg pick anoda coin.",
+      "privateOrderFailed": "We no fit create di private send order. Abeg try again."
     },
     "beta": {
       "title": "Dis na beta feature",

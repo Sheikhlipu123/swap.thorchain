@@ -299,6 +299,10 @@
   "send": {
     "title": "Senden",
     "send": "Senden",
+    "sendPrivately": "Privat senden",
+    "tab": {
+      "privateSend": "Privater Versand"
+    },
     "amount": "Betrag",
     "clear": "Löschen",
     "balanceLabel": "Guthaben:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Ungültige {chain}-Adresse",
       "noRuneBalance": "Kein RUNE-Guthaben gefunden.",
       "noTcyBalance": "Kein TCY-Guthaben gefunden.",
-      "noBalance": "Kein {asset}-Guthaben gefunden."
+      "noBalance": "Kein {asset}-Guthaben gefunden.",
+      "privateUnsupported": "{ticker} auf {chain} kann nicht privat gesendet werden. Wähle eine andere Coin.",
+      "privateOrderFailed": "Der private Sendeauftrag konnte nicht erstellt werden. Bitte versuche es erneut."
     },
     "beta": {
       "title": "Dies ist eine Beta-Funktion",

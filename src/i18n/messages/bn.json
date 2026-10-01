@@ -299,6 +299,10 @@
   "send": {
     "title": "পাঠান",
     "send": "পাঠান",
+    "sendPrivately": "গোপনে পাঠান",
+    "tab": {
+      "privateSend": "প্রাইভেট সেন্ড"
+    },
     "amount": "পরিমাণ",
     "clear": "মুছুন",
     "balanceLabel": "ব্যালেন্স:",
@@ -321,7 +325,9 @@
       "invalidAddress": "অবৈধ {chain} ঠিকানা",
       "noRuneBalance": "কোনো RUNE ব্যালেন্স পাওয়া যায়নি।",
       "noTcyBalance": "কোনো TCY ব্যালেন্স পাওয়া যায়নি।",
-      "noBalance": "কোনো {asset} ব্যালেন্স পাওয়া যায়নি।"
+      "noBalance": "কোনো {asset} ব্যালেন্স পাওয়া যায়নি।",
+      "privateUnsupported": "{chain}-এ {ticker} গোপনে পাঠানো যাবে না। অন্য একটি কয়েন বেছে নিন।",
+      "privateOrderFailed": "প্রাইভেট সেন্ড অর্ডারটি তৈরি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
     },
     "beta": {
       "title": "এটি একটি বিটা ফিচার",

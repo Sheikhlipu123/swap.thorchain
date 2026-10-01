@@ -62,6 +62,13 @@ PRIVATE tab ──quote──▶ api.thorchain.org/v1/quote  providers: ["HOUDIN
   address, so a failed send is recovered through Houdini support (the order page) rather than refunded automatically. With a wallet the
   source address is still passed as the refund address. The aggregator then only picks routes that can do without one; when every route
   needs one it answers "needs a refund address", and `SwapRecipient` shows the refund field for the retry.
+- **Private Send in the wallet Send dialog.** The Send dialog (`src/components/send/send.tsx`, opened from the wallet sidebar) has
+  _Send | Private Send_ tabs. Private Send is the same same-asset Houdini order as the swap form's Send mode (`src/components/send/send-private.ts`):
+  the token picker offers only tokens on Houdini's list, the amount gets a dry quote (_Recipient Gets_, estimated time), and _Send Privately_
+  places the order (non-dry quote, the sending wallet as refund address) and pays its deposit. The deposit is the Houdini plugin's transfer, but
+  signed through `uSwap.getWallet(account.provider, chain)` — `uSwap.swap` would use whichever wallet connected the chain last, not the account
+  the dialog is sending from. The transaction is recorded like a swap-form private send, so history and tracking treat both the same; the
+  disclaimer acknowledgement is shared with the PRIVATE tab.
 - **Deposit memos.** When the order needs a deposit memo (ATOM, TON, RUNE to a venue that uses one) it arrives as `route.memo`, is stored on the
   transaction as `depositMemo`, and is shown beside the QR code — which then encodes the bare address, as it does for any token deposit, since a
   payment URI cannot carry a memo and would read a token amount as native coin.

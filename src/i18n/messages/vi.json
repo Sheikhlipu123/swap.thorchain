@@ -299,6 +299,10 @@
   "send": {
     "title": "Gửi",
     "send": "Gửi",
+    "sendPrivately": "Gửi riêng tư",
+    "tab": {
+      "privateSend": "Gửi riêng tư"
+    },
     "amount": "Số lượng",
     "clear": "Xóa",
     "balanceLabel": "Số dư:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Địa chỉ {chain} không hợp lệ",
       "noRuneBalance": "Không tìm thấy số dư RUNE.",
       "noTcyBalance": "Không tìm thấy số dư TCY.",
-      "noBalance": "Không tìm thấy số dư {asset}."
+      "noBalance": "Không tìm thấy số dư {asset}.",
+      "privateUnsupported": "{ticker} trên {chain} không thể gửi riêng tư. Hãy chọn đồng khác.",
+      "privateOrderFailed": "Không thể tạo lệnh gửi riêng tư. Vui lòng thử lại."
     },
     "beta": {
       "title": "Đây là tính năng beta",

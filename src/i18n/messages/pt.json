@@ -299,6 +299,10 @@
   "send": {
     "title": "Enviar",
     "send": "Enviar",
+    "sendPrivately": "Enviar de Forma Privada",
+    "tab": {
+      "privateSend": "Envio Privado"
+    },
     "amount": "Quantia",
     "clear": "Limpar",
     "balanceLabel": "Saldo:",
@@ -321,7 +325,9 @@
       "invalidAddress": "Endereço {chain} inválido",
       "noRuneBalance": "Nenhum saldo de RUNE encontrado.",
       "noTcyBalance": "Nenhum saldo de TCY encontrado.",
-      "noBalance": "Nenhum saldo de {asset} encontrado."
+      "noBalance": "Nenhum saldo de {asset} encontrado.",
+      "privateUnsupported": "{ticker} na {chain} não pode ser enviado de forma privada. Escolha outra moeda.",
+      "privateOrderFailed": "Não foi possível criar a ordem de envio privado. Tente novamente."
     },
     "beta": {
       "title": "Este é um recurso beta",

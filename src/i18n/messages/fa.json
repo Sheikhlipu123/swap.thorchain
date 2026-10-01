@@ -299,6 +299,10 @@
   "send": {
     "title": "ارسال",
     "send": "ارسال",
+    "sendPrivately": "ارسال خصوصی",
+    "tab": {
+      "privateSend": "ارسال خصوصی"
+    },
     "amount": "مقدار",
     "clear": "پاک کردن",
     "balanceLabel": "موجودی:",
@@ -321,7 +325,9 @@
       "invalidAddress": "آدرس {chain} نامعتبر است",
       "noRuneBalance": "موجودی RUNE یافت نشد.",
       "noTcyBalance": "موجودی TCY یافت نشد.",
-      "noBalance": "موجودی {asset} یافت نشد."
+      "noBalance": "موجودی {asset} یافت نشد.",
+      "privateUnsupported": "{ticker} روی {chain} را نمی‌توان به‌صورت خصوصی ارسال کرد. ارز دیگری انتخاب کنید.",
+      "privateOrderFailed": "سفارش ارسال خصوصی ایجاد نشد. لطفاً دوباره تلاش کنید."
     },
     "beta": {
       "title": "این یک قابلیت بتا است",
