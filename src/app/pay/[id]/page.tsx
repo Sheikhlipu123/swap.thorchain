@@ -1,13 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { ArrowLeft, Copy, ShieldCheck, WalletCards } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
+import { ArrowLeft, ShieldCheck } from 'lucide-react'
+import { useModeAssets } from '@/hooks/use-assets'
+import type { Asset } from '@/components/swap/asset'
 
-type Payment = { public_id: string; recipient_name?: string; amount: string; asset: string; chain: string; description?: string; status: string; expires_at?: string }
-type Quote = { expectedBuyAmount?: string; expectedBuyAmountDecimal?: string; expiry?: string; inboundAddress?: string; memo?: string }
+type Payment = { public_id: string; recipient_name?: string; amount: string; asset: string; chain: string; description?: string; status: string }
+type Quote = { expectedBuyAmountDecimal?: string; expectedBuyAmount?: string; expectedSellAmountDecimal?: string; expectedSellAmount?: string; inboundAddress?: string; memo?: string; expiry?: string }
 
-const sourceAssets = ['BTC', 'ETH', 'USDT', 'RUNE']
+const preferredTickers = ['BTC', 'ETH', 'USDT', 'RUNE']
 
 async function readJson(response: Response): Promise<Record<string, unknown>> {
   const text = await response.text()
@@ -16,76 +18,46 @@ async function readJson(response: Response): Promise<Record<string, unknown>> {
 }
 
 export default function PayPage({ params }: { params: Promise<{ id: string }> }) {
+  const { assets, isLoading: assetsLoading } = useModeAssets()
   const [payment, setPayment] = useState<Payment>()
-  const [sourceAsset, setSourceAsset] = useState('BTC')
+  const [sourceAsset, setSourceAsset] = useState<Asset>()
   const [quote, setQuote] = useState<Quote>()
   const [quoteStatus, setQuoteStatus] = useState<'loading' | 'ready' | 'error'>('loading')
-  const [payWithoutWallet, setPayWithoutWallet] = useState(false)
   const [error, setError] = useState('')
+  const availableAssets = useMemo(() => (assets ?? []).filter(asset => asset.identifier !== (payment ? `${payment.chain}.${payment.asset}` : '')), [assets, payment])
 
   useEffect(() => {
     let active = true
-    const readJson = async (response: Response) => {
-      const text = await response.text()
-      if (!text) return {}
-      try { return JSON.parse(text) as Record<string, unknown> } catch { return {} }
-    }
     params.then(({ id }) => fetch(`/api/payments/${id}`).then(async response => {
       const data = await readJson(response)
       if (!response.ok || !data.payment) throw new Error(typeof data.error === 'string' ? data.error : 'Payment not found')
-      if (!active) return
-      setPayment(data.payment as Payment)
-      if ((data.payment as Payment).status !== 'expired') {
-        try {
-          const nextQuote = await requestQuote(id, 'BTC', (data.payment as Payment).amount)
-          if (active) { setQuote(nextQuote); setQuoteStatus('ready') }
-        } catch (reason) {
-          if (active) {
-            setQuoteStatus('error')
-            setError(reason instanceof Error ? reason.message : 'Unable to fetch a fresh quote')
-          }
-        }
-      }
+      if (active) setPayment(data.payment as Payment)
     }).catch(reason => active && setError(reason instanceof Error ? reason.message : 'Payment not found')))
     return () => { active = false }
   }, [params])
 
-  const requestQuote = async (id: string, asset: string, amount: string) => {
+  useEffect(() => {
+    if (!payment || payment.status === 'expired' || sourceAsset || assetsLoading || availableAssets.length === 0) return
+    const preferred = availableAssets.find(asset => preferredTickers.includes(asset.ticker)) ?? availableAssets[0]
+    setSourceAsset(preferred)
+  }, [payment, sourceAsset, assetsLoading, availableAssets])
+
+  useEffect(() => {
+    if (!payment || !sourceAsset || payment.status === 'expired') return
+    let active = true
+    setQuote(undefined); setQuoteStatus('loading'); setError('')
     const controller = new AbortController()
     const timeout = window.setTimeout(() => controller.abort(), 15000)
-    try {
-      const response = await fetch(`/api/payments/${id}/quote`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ sourceAsset: asset, sourceAmount: amount }),
-        signal: controller.signal
-      })
-      const data = await readJson(response)
-      if (!response.ok || !data.quote) throw new Error(typeof data.error === 'string' ? data.error : 'Unable to fetch a fresh quote')
-      return data.quote as Quote
-    } catch (reason) {
-      if (reason instanceof DOMException && reason.name === 'AbortError') throw new Error('Quote request timed out. Please try again.')
-      throw reason
-    } finally {
-      window.clearTimeout(timeout)
-    }
-  }
-
-  const selectAsset = async (asset: string) => {
-    if (!payment) return
-    setSourceAsset(asset); setQuoteStatus('loading'); setQuote(undefined); setError('')
-    try {
-      const nextQuote = await requestQuote(payment.public_id, asset, payment.amount)
-      setQuote(nextQuote); setQuoteStatus('ready')
-    } catch (reason) {
-      setQuoteStatus('error')
-      setError(reason instanceof Error ? reason.message : 'Unable to fetch a fresh quote')
-    }
-  }
+    fetch(`/api/payments/${payment.public_id}/quote`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sourceAsset: sourceAsset.identifier, sourceAmount: payment.amount }), signal: controller.signal })
+      .then(async response => { const data = await readJson(response); if (!response.ok || !data.quote) throw new Error(typeof data.error === 'string' ? data.error : 'Unable to fetch a fresh quote'); return data.quote as Quote })
+      .then(nextQuote => { if (active) { setQuote(nextQuote); setQuoteStatus('ready') } })
+      .catch(reason => { if (active) { setQuoteStatus('error'); setError(reason instanceof DOMException ? 'Quote request timed out. Please try again.' : reason instanceof Error ? reason.message : 'Unable to fetch a fresh quote') } })
+      .finally(() => window.clearTimeout(timeout))
+    return () => { active = false; controller.abort(); window.clearTimeout(timeout) }
+  }, [payment, sourceAsset])
 
   if (error) return <main className="grid min-h-screen place-items-center bg-[#0b0d12] px-6 text-white"><div className="text-center"><p className="text-xl">{error}</p><Link href="/" className="mt-5 inline-block text-sm text-[#a6e96b]">Return to ThorPay</Link></div></main>
-  if (!payment) return <main className="grid min-h-screen place-items-center bg-[#0b0d12] text-white/50">Loading payment request and fresh quote…</main>
+  if (!payment) return <main className="grid min-h-screen place-items-center bg-[#0b0d12] text-white/50">Loading payment request…</main>
   const expired = payment.status === 'expired'
-
-  return <main className="min-h-screen bg-[#0b0d12] px-6 py-8 text-white"><div className="mx-auto max-w-xl"><Link href="/" className="inline-flex items-center gap-2 text-sm text-white/50"><ArrowLeft data-icon="inline-start" /> ThorPay</Link><section className="mt-12 rounded-3xl border border-white/10 bg-[#151820] p-7"><div className="flex items-center justify-between"><span className="text-xs tracking-widest text-white/40">PAYMENT REQUEST</span><span className={`rounded-full px-3 py-1 text-xs ${expired ? 'bg-red-400/10 text-red-300' : 'bg-[#a6e96b]/10 text-[#a6e96b]'}`}>{expired ? 'EXPIRED' : 'ACTIVE'}</span></div><p className="mt-10 text-sm text-white/45">{payment.recipient_name || 'Someone'} is requesting</p><h1 className="mt-2 text-5xl font-semibold tracking-tight">{payment.amount} <span className="text-2xl text-white/45">{payment.asset}</span></h1>{payment.description && <p className="mt-4 text-white/60">{payment.description}</p>}<div className="mt-8 flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 p-4 text-sm text-white/55"><ShieldCheck className="text-[#a6e96b]" /> Recipient wallet details stay private and are only used by the swap service.</div>{expired ? <div className="mt-6 rounded-2xl bg-red-400/10 p-4 text-sm text-red-200">This request is no longer accepting payments.</div> : <><h2 className="mt-8 text-lg font-medium">Choose how you want to pay</h2><p className="mt-2 text-sm text-white/45">A fresh THORChain quote is fetched when this link opens and whenever you change assets.</p><div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">{sourceAssets.map(asset => <button type="button" key={asset} onClick={() => selectAsset(asset)} className={`rounded-2xl border px-4 py-4 text-left ${sourceAsset === asset ? 'border-[#a6e96b] bg-[#a6e96b]/10' : 'border-white/10 bg-white/[.03]'}`}><span className="block text-sm font-medium">{asset}</span><span className="mt-1 block text-xs text-white/35">Pay with {asset}</span></button>)}</div><div className="mt-6 rounded-2xl border border-white/8 bg-black/15 p-5"><div className="flex justify-between text-sm"><span className="text-white/45">You pay</span><span>{quoteStatus === 'loading' ? 'Refreshing quote…' : quote?.expectedBuyAmountDecimal || quote?.expectedBuyAmount || `${payment.amount} ${sourceAsset}`}</span></div><div className="mt-3 flex justify-between text-sm"><span className="text-white/45">You receive</span><span>{payment.amount} {payment.asset}</span></div>{quoteStatus === 'error' && <p className="mt-4 text-xs text-red-300">No live route is available for this asset right now.</p>}</div><button type="button" onClick={() => setPayWithoutWallet(true)} className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#a6e96b] px-5 py-3.5 font-medium text-[#10130e]"><WalletCards data-icon="inline-start" /> Pay without connecting a wallet</button>{payWithoutWallet && <div className="mt-4 rounded-2xl border border-[#a6e96b]/30 bg-[#a6e96b]/10 p-4 text-sm text-[#d9f8bc]">Instant payment mode uses ThorPay&apos;s existing memoless swap flow. No wallet connection is required; continue to get a deposit address for {sourceAsset}.</div>}</>}</section><p className="mt-5 text-center text-xs text-white/30">Powered by THORChain · <button type="button" onClick={() => navigator.clipboard?.writeText(window.location.href)} className="underline">Copy payment link</button></p></div></main>
+  return <main className="min-h-screen bg-[#0b0d12] px-6 py-8 text-white"><div className="mx-auto max-w-xl"><Link href="/" className="inline-flex items-center gap-2 text-sm text-white/50"><ArrowLeft data-icon="inline-start" /> ThorPay</Link><section className="mt-12 rounded-3xl border border-white/10 bg-[#151820] p-7"><div className="flex items-center justify-between"><span className="text-xs tracking-widest text-white/40">PAYMENT REQUEST</span><span className="rounded-full bg-[#a6e96b]/10 px-3 py-1 text-xs text-[#a6e96b]">{expired ? 'EXPIRED' : 'ACTIVE'}</span></div><p className="mt-10 text-sm text-white/45">{payment.recipient_name || 'Someone'} is requesting</p><h1 className="mt-2 text-5xl font-semibold tracking-tight">{payment.amount} <span className="text-2xl text-white/45">{payment.asset}</span></h1>{payment.description && <p className="mt-4 text-white/60">{payment.description}</p>}<div className="mt-8 flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 p-4 text-sm text-white/55"><ShieldCheck className="text-[#a6e96b]" /> Recipient wallet details stay private.</div>{expired ? <div className="mt-6 rounded-2xl bg-red-400/10 p-4 text-sm text-red-200">This request is no longer accepting payments.</div> : <><h2 className="mt-8 text-lg font-medium">Choose how you want to pay</h2><p className="mt-2 text-sm text-white/45">All currently supported THORChain assets are available.</p><div className="mt-5 grid max-h-72 grid-cols-2 gap-3 overflow-y-auto sm:grid-cols-3">{availableAssets.map(asset => <button type="button" key={asset.identifier} onClick={() => setSourceAsset(asset)} className={`rounded-2xl border px-4 py-4 text-left ${sourceAsset?.identifier === asset.identifier ? 'border-[#a6e96b] bg-[#a6e96b]/10' : 'border-white/10 bg-white/[.03]'}`}><span className="block text-sm font-medium">{asset.ticker}</span><span className="mt-1 block truncate text-xs text-white/35">{asset.chain}</span></button>)}</div><div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5"><p className="text-xs tracking-widest text-white/40">YOU PAY</p>{quoteStatus === 'loading' && <p className="mt-3 text-white/60">Refreshing quote…</p>}{quoteStatus === 'error' && <p className="mt-3 text-sm text-red-300">{error}</p>}{quoteStatus === 'ready' && quote && <><p className="mt-2 text-3xl font-semibold">{quote.expectedSellAmountDecimal || quote.expectedSellAmount || payment.amount} <span className="text-lg text-white/45">{sourceAsset?.ticker}</span></p><p className="mt-4 text-sm text-white/55">Send to the secure THORChain deposit address shown after continuing.</p><p className="mt-2 text-sm text-white/45">You receive {payment.amount} {payment.asset}</p></>}<button type="button" disabled={quoteStatus !== 'ready'} className="mt-5 w-full rounded-full bg-[#a6e96b] px-4 py-3 font-medium text-[#10130d] disabled:cursor-not-allowed disabled:opacity-40">Pay {payment.amount} {payment.asset}</button></div></>}</section></div></main>
 }
