@@ -9,6 +9,12 @@ type Quote = { expectedBuyAmount?: string; expectedBuyAmountDecimal?: string; ex
 
 const sourceAssets = ['BTC', 'ETH', 'USDT', 'RUNE']
 
+async function readJson(response: Response): Promise<Record<string, unknown>> {
+  const text = await response.text()
+  if (!text) return {}
+  try { return JSON.parse(text) as Record<string, unknown> } catch { return {} }
+}
+
 export default function PayPage({ params }: { params: Promise<{ id: string }> }) {
   const [payment, setPayment] = useState<Payment>()
   const [sourceAsset, setSourceAsset] = useState('BTC')
@@ -30,23 +36,51 @@ export default function PayPage({ params }: { params: Promise<{ id: string }> })
       if (!active) return
       setPayment(data.payment as Payment)
       if ((data.payment as Payment).status !== 'expired') {
-        const quoteResponse = await fetch(`/api/payments/${id}/quote`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sourceAsset: 'BTC', sourceAmount: (data.payment as Payment).amount }) })
-        const quoteData = await readJson(quoteResponse)
-        if (active) {
-          setQuote(quoteData.quote as Quote | undefined)
-          setQuoteStatus(quoteResponse.ok ? 'ready' : 'error')
-          if (!quoteResponse.ok && typeof quoteData.error === 'string') setError(quoteData.error)
+        try {
+          const nextQuote = await requestQuote(id, 'BTC', (data.payment as Payment).amount)
+          if (active) { setQuote(nextQuote); setQuoteStatus('ready') }
+        } catch (reason) {
+          if (active) {
+            setQuoteStatus('error')
+            setError(reason instanceof Error ? reason.message : 'Unable to fetch a fresh quote')
+          }
         }
       }
     }).catch(reason => active && setError(reason instanceof Error ? reason.message : 'Payment not found')))
     return () => { active = false }
   }, [params])
 
+  const requestQuote = async (id: string, asset: string, amount: string) => {
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 15000)
+    try {
+      const response = await fetch(`/api/payments/${id}/quote`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ sourceAsset: asset, sourceAmount: amount }),
+        signal: controller.signal
+      })
+      const data = await readJson(response)
+      if (!response.ok || !data.quote) throw new Error(typeof data.error === 'string' ? data.error : 'Unable to fetch a fresh quote')
+      return data.quote as Quote
+    } catch (reason) {
+      if (reason instanceof DOMException && reason.name === 'AbortError') throw new Error('Quote request timed out. Please try again.')
+      throw reason
+    } finally {
+      window.clearTimeout(timeout)
+    }
+  }
+
   const selectAsset = async (asset: string) => {
     if (!payment) return
-    setSourceAsset(asset); setQuoteStatus('loading'); setQuote(undefined)
-    const response = await fetch(`/api/payments/${payment.public_id}/quote`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sourceAsset: asset, sourceAmount: payment.amount }) })
-    const data = await response.json(); setQuote(data.quote); setQuoteStatus(response.ok ? 'ready' : 'error')
+    setSourceAsset(asset); setQuoteStatus('loading'); setQuote(undefined); setError('')
+    try {
+      const nextQuote = await requestQuote(payment.public_id, asset, payment.amount)
+      setQuote(nextQuote); setQuoteStatus('ready')
+    } catch (reason) {
+      setQuoteStatus('error')
+      setError(reason instanceof Error ? reason.message : 'Unable to fetch a fresh quote')
+    }
   }
 
   if (error) return <main className="grid min-h-screen place-items-center bg-[#0b0d12] px-6 text-white"><div className="text-center"><p className="text-xl">{error}</p><Link href="/" className="mt-5 inline-block text-sm text-[#a6e96b]">Return to ThorPay</Link></div></main>
