@@ -185,6 +185,17 @@ const InfoIcon = memo<IconProps>(props => (
   </SVG>
 ))
 
+const WalletIcon = memo<IconProps>(props => (
+  <SVG {...props}>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M20 5H4V7H22V21H2V3H20V5ZM4 9V19H20V17H18.5C16.8431 17 15.5 15.6569 15.5 14C15.5 12.3431 16.8431 11 18.5 11H20V9H4ZM18.5 13C17.9477 13 17.5 13.4477 17.5 14C17.5 14.5523 17.9477 15 18.5 15H20V13H18.5Z"
+      fill="currentColor"
+    />
+  </SVG>
+))
+
 const WalletOutIcon = memo<IconProps>(props => (
   <SVG {...props}>
     <path
@@ -406,6 +417,7 @@ const iconMap = {
   telegram: TelegramIcon,
   trash: TrashIcon,
   unstoppable: UnstoppableIcon,
+  wallet: WalletIcon,
   'wallet-in': WalletInIcon,
   'wallet-out': WalletOutIcon,
   warning: WarningIcon,

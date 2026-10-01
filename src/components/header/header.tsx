@@ -10,6 +10,7 @@ import { LanguageSwitchButton } from '@/components/header/language-switch-button
 import { TransactionHistoryButton } from '@/components/header/transaction-history-button'
 import { useDialog } from '@/components/global-dialog'
 import { GenericButton } from '@/components/generic-button'
+import { Icon } from '@/components/icons'
 import { WalletSidebar } from '@/components/wallet-sidebar/wallet-sidebar'
 import { HeaderLogoText } from '@/components/header/header-logo-text'
 import { ReplacementOrderWatcher } from '@/components/swap/replacement-order-watcher'
@@ -39,24 +40,33 @@ export function Header() {
           'border-b': isScrolled
         })}
       >
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           <a
             href={AppConfig.logoLink || '/'}
-            className="flex items-center gap-2.5"
+            className="flex shrink-0 items-center gap-2.5"
             rel="noopener noreferrer"
             target={AppConfig.logoLink ? '_blank' : '_self'}
           >
             <Image src={AppConfig.logo} alt={AppConfig.title} width={36} height={41} priority />
-            <HeaderLogoText />
+            <span className="hidden sm:block">
+              <HeaderLogoText />
+            </span>
           </a>
 
-          <div className="flex flex-1 flex-wrap items-center justify-end gap-3">
+          <div className="flex flex-1 flex-wrap items-center justify-end gap-2 sm:gap-3">
             <ThemeSwitchButton />
             <LanguageSwitchButton />
             <TransactionHistoryButton />
-            <GenericButton size="medium" onClick={() => openDialog(WalletSidebar, {})}>
+            <GenericButton size="medium" className="max-sm:hidden" onClick={() => openDialog(WalletSidebar, {})}>
               {t('wallet')}
             </GenericButton>
+            <GenericButton
+              size="medium"
+              icon={<Icon name="wallet" />}
+              aria-label={t('wallet')}
+              className="sm:hidden"
+              onClick={() => openDialog(WalletSidebar, {})}
+            />
             <GlobalMenuButton />
           </div>
         </div>

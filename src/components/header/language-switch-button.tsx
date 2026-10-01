@@ -29,8 +29,9 @@ export const LanguageSwitchButton = () => {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <GenericButton size="medium" aria-label={t('language')} className="flex items-center gap-1.5 uppercase">
-          <LocaleFlag locale={current} /> {current}
+        <GenericButton size="medium" aria-label={t('language')} className="flex items-center gap-1.5 uppercase max-sm:size-10 max-sm:p-0">
+          <LocaleFlag locale={current} />
+          <span className="hidden sm:inline">{current}</span>
         </GenericButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent
