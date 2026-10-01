@@ -61,6 +61,8 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
   const [refundAsked, setRefundAsked] = useState(false)
   const [warningChecked, setWarningChecked] = useState(false)
   const [warningCheckedLTC, setWarningCheckedLTC] = useState(false)
+  // Read-only on mobile until touched: focus gets moved into the field (e.g. by ticking the warning) and raises the keyboard.
+  const [editingField, setEditingField] = useState<'refund' | 'destination'>()
 
   if (!assetFrom || !assetTo) return null
 
@@ -153,6 +155,7 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
   }, [replacementOrder?.consumed, buttonEnabled])
 
   const addressInput = (
+    field: 'refund' | 'destination',
     asset: Asset,
     address: string,
     setAddress: (address: string) => void,
@@ -169,11 +172,19 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
       <>
         <div className="relative">
           <Textarea
-            placeholder={isMobile ? undefined : t('recipient.addressPlaceholder', { chain: chainLabel(asset.chain) })}
+            placeholder={t('recipient.addressPlaceholder', { chain: chainLabel(asset.chain) })}
             value={address}
             aria-invalid={isInvalid}
             onChange={e => setAddress(e.target.value)}
-            className={cn('bg-input-modal-bg-active border-border-sub-container-modal-low', { 'pl-12': currentOption })}
+            enterKeyHint="done"
+            readOnly={isMobile && editingField !== field}
+            onPointerDown={() => setEditingField(field)}
+            onBlur={() => setEditingField(undefined)}
+            className={cn(
+              'bg-input-modal-bg-active border-border-sub-container-modal-low',
+              address.length ? 'pe-20' : options.length ? 'pe-28' : 'md:pe-24',
+              { 'pl-12': currentOption }
+            )}
             tabIndex={isMobile ? -1 : 0}
           />
 
@@ -234,6 +245,19 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
     )
   }
 
+  const nextButton = (
+    <GenericButton
+      colorType="3"
+      size="large"
+      className="w-full"
+      onClick={fetchQuote}
+      disabled={!buttonEnabled || !warningChecked || (isLTC && !warningCheckedLTC)}
+    >
+      {quoting && <LoaderCircle size={20} className="animate-spin" />}
+      <span>{quoting ? t('recipient.preparingSwap') : t('recipient.next')}</span>
+    </GenericButton>
+  )
+
   return (
     <>
       <CredenzaHeader>
@@ -247,13 +271,14 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
               {refundRequired && (
                 <div className="flex flex-col gap-3">
                   <div className="text-txt-label-small text-sm font-semibold">{t('recipient.enterRefundAddress')}</div>
-                  {addressInput(assetFrom, refundAddress, setRefundAddress, refundCheck, refundName.isResolving)}
+                  {addressInput('refund', assetFrom, refundAddress, setRefundAddress, refundCheck, refundName.isResolving)}
                 </div>
               )}
 
               <div className="flex flex-col gap-3">
                 {refundRequired && <div className="text-txt-label-small text-sm font-semibold">{t('recipient.enterReceivingAddress')}</div>}
                 {addressInput(
+                  'destination',
                   assetTo,
                   destinationAddress,
                   setDestinationAddress,
@@ -287,21 +312,12 @@ export const SwapRecipient = ({ provider, onFetchQuote }: SwapRecipientProps) =>
           {quoteError && <SwapError error={quoteError} />}
         </div>
 
+        {isMobile && <div className="pt-2 pb-4">{nextButton}</div>}
+
         <div className="from-modal pointer-events-none absolute inset-x-0 -bottom-px h-4 bg-linear-to-t to-transparent" />
       </ScrollArea>
 
-      <div className="p-4 pt-2 md:p-8 md:pt-2">
-        <GenericButton
-          colorType="3"
-          size="large"
-          className="w-full"
-          onClick={fetchQuote}
-          disabled={!buttonEnabled || !warningChecked || (isLTC && !warningCheckedLTC)}
-        >
-          {quoting && <LoaderCircle size={20} className="animate-spin" />}
-          <span>{quoting ? t('recipient.preparingSwap') : t('recipient.next')}</span>
-        </GenericButton>
-      </div>
+      {!isMobile && <div className="p-8 pt-2">{nextButton}</div>}
     </>
   )
 }

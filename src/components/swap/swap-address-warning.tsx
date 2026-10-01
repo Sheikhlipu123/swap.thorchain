@@ -9,12 +9,20 @@ type SwapWarningProps = {
 
 export const SwapAddressWarning = ({ text, textAccent, checked, onCheckedChange }: SwapWarningProps) => {
   return (
-    <div className="border-stroke-swap-bloc flex items-center gap-4 rounded-xl border p-4 text-sm">
-      <Checkbox className="size-6" checked={checked} onCheckedChange={onCheckedChange} />
+    <label className="border-stroke-swap-bloc flex cursor-pointer items-center gap-4 rounded-xl border p-4 text-sm">
+      <Checkbox
+        className="size-6"
+        checked={checked}
+        onCheckedChange={value => {
+          const active = document.activeElement
+          if (active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement) active.blur()
+          onCheckedChange?.(value === true)
+        }}
+      />
       <div className="space-x-1">
         <span className="text-txt-label-small">{text}</span>
         {textAccent && <span className="text-jacob">{textAccent}</span>}
       </div>
-    </div>
+    </label>
   )
 }
