@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { SwapPage } from '@/app/components/swap-page'
-import { AppConfig } from '@/config'
+import Link from 'next/link'
+import { ArrowRight, Check, Link2, ShieldCheck, Zap } from 'lucide-react'
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: AppConfig.baseUrl
-  }
-}
+export const metadata: Metadata = { title: 'ThorPay — Get paid in crypto', description: 'Create one payment link and receive the asset you requested.' }
 
-export default async function Page() {
-  return <SwapPage />
+export default function Page() {
+  return <main className="min-h-screen bg-[#0b0d12] text-white">
+    <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6"><Link href="/" className="text-xl font-semibold tracking-tight">Thor<span className="text-[#a6e96b]">Pay</span></Link><nav className="hidden items-center gap-7 text-sm text-white/60 md:flex"><Link href="/create" className="hover:text-white">Request payment</Link><Link href="#how" className="hover:text-white">How it works</Link><Link href="/dashboard" className="hover:text-white">Dashboard</Link></nav><Link href="/create" className="rounded-full border border-white/15 px-4 py-2 text-sm hover:bg-white/5">Get started</Link></header>
+    <section className="mx-auto grid max-w-6xl gap-16 px-6 pb-24 pt-16 md:grid-cols-[1.05fr_.95fr] md:items-center md:pt-28"><div><div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#a6e96b]/25 bg-[#a6e96b]/8 px-3 py-1.5 text-xs text-[#c9f5a5]"><span className="size-1.5 rounded-full bg-[#a6e96b]" /> Payments without the middleman</div><h1 className="max-w-xl text-5xl font-semibold tracking-[-.05em] md:text-7xl">Get paid in <span className="text-[#a6e96b]">crypto.</span></h1><p className="mt-6 max-w-lg text-lg leading-8 text-white/55">Create one payment link. Your customer can pay with a supported asset while you receive exactly what you requested.</p><div className="mt-9 flex flex-wrap gap-3"><Link href="/create" className="inline-flex items-center gap-2 rounded-full bg-[#a6e96b] px-5 py-3.5 font-medium text-[#10130d] hover:bg-[#c2f895]">Create payment request <ArrowRight data-icon="inline-end" /></Link><Link href="/pay/demo" className="rounded-full border border-white/15 px-5 py-3.5 text-white/80 hover:bg-white/5">Pay someone</Link></div><div className="mt-10 flex items-center gap-5 text-xs text-white/40"><span className="flex items-center gap-2"><ShieldCheck data-icon="inline-start" /> Non-custodial</span><span className="flex items-center gap-2"><Zap data-icon="inline-start" /> Cross-chain</span></div></div><div className="relative"><div className="absolute -inset-10 rounded-full bg-[#a6e96b]/10 blur-3xl" /><div className="relative rounded-3xl border border-white/10 bg-[#151820] p-5 shadow-2xl shadow-black/30"><div className="flex items-center justify-between border-b border-white/8 pb-5 text-xs text-white/40"><span>PAYMENT REQUEST</span><span className="rounded-full bg-[#a6e96b]/10 px-2.5 py-1 text-[#a6e96b]">ACTIVE</span></div><div className="py-9"><p className="text-sm text-white/45">Lee is requesting</p><p className="mt-2 text-5xl font-semibold tracking-tight">100 <span className="text-2xl text-white/45">USDC</span></p><p className="mt-4 text-sm text-white/55">Website development</p></div><div className="flex items-center justify-between border-t border-white/8 pt-5"><span className="flex items-center gap-2 text-sm text-white/60"><Link2 data-icon="inline-start" /> thorpay.xyz/pay/8f72k</span><Link href="/create" className="rounded-full bg-white/8 px-3 py-2 text-xs">Create yours</Link></div></div></div></section>
+    <section id="how" className="border-y border-white/8 bg-[#0f1218]"><div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-3"><div><p className="mb-3 text-sm text-[#a6e96b]">01</p><h2 className="text-xl font-medium">Create a link</h2><p className="mt-2 text-sm leading-6 text-white/45">Set the amount, asset, and wallet where you want to receive payment.</p></div><div><p className="mb-3 text-sm text-[#a6e96b]">02</p><h2 className="text-xl font-medium">Share it anywhere</h2><p className="mt-2 text-sm leading-6 text-white/45">Send a clean, secure payment page to your customer.</p></div><div><p className="mb-3 text-sm text-[#a6e96b]">03</p><h2 className="text-xl font-medium">Receive exactly what you asked for</h2><p className="mt-2 text-sm leading-6 text-white/45">They pay with their preferred supported asset. THORChain handles the swap.</p></div></div></section>
+    <footer className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 text-xs text-white/35"><span>ThorPay</span><span>Powered by THORChain</span></footer>
+  </main>
 }

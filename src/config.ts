@@ -2,11 +2,10 @@ import { ProviderName } from '@tcswap/helpers'
 
 export const AppConfig = {
   id: 'thorchain',
-  appName: 'THORChain Swap',
-  title: 'THORChain Swap | Cross-Chain BTC, ETH & Crypto Swaps',
-  description:
-    'Swap Bitcoin to Ethereum and other cryptocurrencies instantly with THORChain. Native BTC swaps with no bridges, wrapping, or centralized exchanges.',
-  baseUrl: 'https://swap.thorchain.org',
+  appName: 'ThorPay',
+  title: 'ThorPay | Get paid in crypto',
+  description: 'Create one payment link and receive the asset you requested while your customer pays with another supported crypto asset.',
+  baseUrl: 'https://thorpay.xyz',
   providers: [ProviderName.THORCHAIN, ProviderName.MAYACHAIN],
   // The PRIVATE tab quotes this provider alone; its assets are listed only there.
   privateProvider: ProviderName.HOUDINI,

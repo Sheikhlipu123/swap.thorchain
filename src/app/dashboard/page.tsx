@@ -1,0 +1,6 @@
+import Link from 'next/link'
+import { ArrowLeft, Plus } from 'lucide-react'
+
+export default function DashboardPage() {
+  return <main className="min-h-screen bg-[#0b0d12] px-6 py-8 text-white"><div className="mx-auto max-w-5xl"><div className="flex items-center justify-between"><Link href="/" className="inline-flex items-center gap-2 text-sm text-white/50"><ArrowLeft data-icon="inline-start" /> ThorPay</Link><Link href="/create" className="inline-flex items-center gap-2 rounded-full bg-[#a6e96b] px-4 py-2.5 text-sm font-medium text-[#10130d]"><Plus data-icon="inline-start" /> New request</Link></div><div className="mt-14"><p className="text-sm text-[#a6e96b]">Dashboard</p><h1 className="mt-2 text-4xl font-semibold tracking-tight">Payment requests</h1><p className="mt-3 text-white/45">Your recent payment links and their status.</p></div><div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-[#151820]"><div className="grid grid-cols-4 border-b border-white/8 px-5 py-4 text-xs tracking-wide text-white/35"><span>REQUEST</span><span>AMOUNT</span><span>STATUS</span><span>CREATED</span></div><div className="px-5 py-14 text-center text-sm text-white/40">Payment requests you create will appear here.</div></div></div></main>
+}
