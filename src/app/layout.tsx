@@ -25,14 +25,14 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: 'THORChain Swap',
+    title: 'ThorPay',
     statusBarStyle: 'black-translucent'
   },
   openGraph: {
     title: AppConfig.title,
     description: AppConfig.description,
     url: AppConfig.baseUrl,
-    siteName: 'THORChain Swap',
+    siteName: 'ThorPay',
     images: [
       {
         url: `${AppConfig.baseUrl}/og-image.png`,
@@ -83,14 +83,14 @@ const structuredData = {
     {
       '@type': 'WebSite',
       '@id': `${AppConfig.baseUrl}/#website`,
-      name: 'THORChain Swap',
+      name: 'ThorPay',
       url: AppConfig.baseUrl,
       publisher: { '@id': `${AppConfig.baseUrl}/#organization` }
     },
     {
       '@type': 'WebApplication',
       '@id': `${AppConfig.baseUrl}/#webapplication`,
-      name: 'THORChain Swap',
+      name: 'ThorPay',
       url: AppConfig.baseUrl,
       description: AppConfig.description,
       applicationCategory: 'FinanceApplication',
