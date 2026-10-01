@@ -13,7 +13,7 @@ const ETH_RPC_URL = process.env.NEXT_PUBLIC_ALCHEMY_ETH_RPC_URL || 'https://eth.
 
 // Spam tokens airdropped into user wallets. Prefer the address list: a ticker match also hides
 // any legitimate token that happens to share the symbol.
-const ETH_SCAM_TICKERS = new Set(['HEX', 'AICC', 'ETHG', 'PVC'])
+const ETH_SCAM_TICKERS = new Set(['HEX', 'AICC', 'ETHG', 'PVC', 'PAP'])
 
 const SCAM_TOKEN_ADDRESSES = new Set([
   '0x6051c1354ccc51b4d561e43b02735deae64768b8' // ETH.YRISE
