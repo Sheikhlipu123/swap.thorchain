@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "Untuk Agen AI"],
   "footer.developers": ["Developers", "Pengembang"],
   "footer.liveChat": ["Live Chat", "Obrolan Langsung"],
+  "footer.support": ["Support", "Dukungan"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Laporkan bug / minta fitur"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Terima kasih! Laporan Anda telah dikirim."],
   "footer.bug.close": ["Close", "Tutup"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "Deposit {ticker}"],
   "tx.leg.send": ["Send {ticker}", "Kirim {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "Rutekan {ticker} secara privat"],
-  "tx.leg.swap": ["Swap {from} to {to}", "Tukar {from} ke {to}"],
-  "footer.support": ["Support", "Dukungan"]
+  "tx.leg.swap": ["Swap {from} to {to}", "Tukar {from} ke {to}"]
 }

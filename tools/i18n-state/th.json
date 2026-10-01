@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "สำหรับ AI Agent"],
   "footer.developers": ["Developers", "นักพัฒนา"],
   "footer.liveChat": ["Live Chat", "แชทสด"],
+  "footer.support": ["Support", "ฝ่ายสนับสนุน"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "รายงานข้อบกพร่อง / ขอฟีเจอร์"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "ขอบคุณ รายงานของคุณถูกส่งแล้ว"],
   "footer.bug.close": ["Close", "ปิด"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "ฝาก {ticker}"],
   "tx.leg.send": ["Send {ticker}", "ส่ง {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "กำหนดเส้นทาง {ticker} แบบส่วนตัว"],
-  "tx.leg.swap": ["Swap {from} to {to}", "แลกเปลี่ยน {from} เป็น {to}"],
-  "footer.support": ["Support", "ฝ่ายสนับสนุน"]
+  "tx.leg.swap": ["Swap {from} to {to}", "แลกเปลี่ยน {from} เป็น {to}"]
 }

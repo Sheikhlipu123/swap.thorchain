@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "面向 AI 智能体"],
   "footer.developers": ["Developers", "开发者"],
   "footer.liveChat": ["Live Chat", "在线客服"],
+  "footer.support": ["Support", "支持"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "报告漏洞 / 功能"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "谢谢！您的报告已发送。"],
   "footer.bug.close": ["Close", "关闭"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "存入{ticker}"],
   "tx.leg.send": ["Send {ticker}", "发送{ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "私密路由 {ticker}"],
-  "tx.leg.swap": ["Swap {from} to {to}", "将{from}兑换为{to}"],
-  "footer.support": ["Support", "支持"]
+  "tx.leg.swap": ["Swap {from} to {to}", "将{from}兑换为{to}"]
 }

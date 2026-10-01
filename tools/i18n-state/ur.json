@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "اے آئی ایجنٹس کے لیے"],
   "footer.developers": ["Developers", "ڈیولپرز"],
   "footer.liveChat": ["Live Chat", "لائیو چیٹ"],
+  "footer.support": ["Support", "سپورٹ"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "بگ رپورٹ کریں / فیچر کی درخواست کریں"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "شکریہ! آپ کی رپورٹ بھیج دی گئی ہے۔"],
   "footer.bug.close": ["Close", "بند کریں"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} ڈپازٹ کریں"],
   "tx.leg.send": ["Send {ticker}", "{ticker} بھیجیں"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} کو نجی طور پر روٹ کریں"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from} کا {to} میں تبادلہ کریں"],
-  "footer.support": ["Support", "سپورٹ"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from} کا {to} میں تبادلہ کریں"]
 }

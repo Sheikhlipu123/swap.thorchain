@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "AIエージェント向け"],
   "footer.developers": ["Developers", "開発者"],
   "footer.liveChat": ["Live Chat", "ライブチャット"],
+  "footer.support": ["Support", "サポート"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "バグの報告／機能のリクエスト"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "ありがとうございます。報告が送信されました。"],
   "footer.bug.close": ["Close", "閉じる"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} を預け入れ"],
   "tx.leg.send": ["Send {ticker}", "{ticker} を送信"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} をプライベートにルーティング"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from} を {to} にスワップ"],
-  "footer.support": ["Support", "サポート"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from} を {to} にスワップ"]
 }

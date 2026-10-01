@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "لوكلاء الذكاء الاصطناعي"],
   "footer.developers": ["Developers", "المطورين"],
   "footer.liveChat": ["Live Chat", "شات مباشر"],
+  "footer.support": ["Support", "الدعم"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "بلّغ عن خطأ / اطلب ميزة"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "شكراً ليك! تم إرسال البلاغ بتاعك."],
   "footer.bug.close": ["Close", "إغلاق"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "إيداع {ticker}"],
   "tx.leg.send": ["Send {ticker}", "إرسال {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "وجّه {ticker} بشكل خاص"],
-  "tx.leg.swap": ["Swap {from} to {to}", "تبديل {from} إلى {to}"],
-  "footer.support": ["Support", "الدعم"]
+  "tx.leg.swap": ["Swap {from} to {to}", "تبديل {from} إلى {to}"]
 }

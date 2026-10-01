@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "ᚠᛟᚱ ᚨᛁ ᚨᚷᛖᚾᛏᛊ"],
   "footer.developers": ["Developers", "ᛞᛖᚹᛖᛚᛟᛈᛖᚱᛊ"],
   "footer.liveChat": ["Live Chat", "ᛚᛁᚠᛖ ᚲᚺᚨᛏ"],
+  "footer.support": ["Support", "ᛊᚢᛈᛈᛟᚱᛏ"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "ᚱᛖᛈᛟᚱᛏ ᚨ ᛒᚢᚷ / ᚱᛖᚲᚢᛖᛊᛏ ᚨ ᚠᛖᚨᛏᚢᚱᛖ"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "ᚦᚨᚾᚲ ᛁᛟᚢ! ᛁᛟᚢᚱ ᚱᛖᛈᛟᚱᛏ ᚺᚨᛊ ᛒᛖᛖᚾ ᛊᛖᚾᛏ."],
   "footer.bug.close": ["Close", "ᚲᛚᛟᛊᛖ"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "ᛞᛖᛈᛟᛊᛁᛏ {ticker}"],
   "tx.leg.send": ["Send {ticker}", "ᛊᛖᚾᛞ {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "ᚱᛟᚢᛏᛖ {ticker} ᛈᚱᛁᚹᚨᛏᛖᛚᛁ"],
-  "tx.leg.swap": ["Swap {from} to {to}", "ᛊᚹᚨᛈ {from} ᛏᛟ {to}"],
-  "footer.support": ["Support", "ᛊᚢᛈᛈᛟᚱᛏ"]
+  "tx.leg.swap": ["Swap {from} to {to}", "ᛊᚹᚨᛈ {from} ᛏᛟ {to}"]
 }

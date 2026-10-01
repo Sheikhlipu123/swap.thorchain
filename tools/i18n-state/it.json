@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "Per agenti IA"],
   "footer.developers": ["Developers", "Sviluppatori"],
   "footer.liveChat": ["Live Chat", "Chat dal vivo"],
+  "footer.support": ["Support", "Supporto"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Segnala un bug / Richiedi una funzionalità"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Grazie! La sua segnalazione è stata inviata.", "Grazie! La tua segnalazione è stata inviata."],
   "footer.bug.close": ["Close", "Chiudi"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "Deposita {ticker}"],
   "tx.leg.send": ["Send {ticker}", "Invia {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "Instrada {ticker} privatamente"],
-  "tx.leg.swap": ["Swap {from} to {to}", "Scambia {from} con {to}"],
-  "footer.support": ["Support", "Supporto"]
+  "tx.leg.swap": ["Swap {from} to {to}", "Scambia {from} con {to}"]
 }

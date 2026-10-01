@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "面向 AI 代理"],
   "footer.developers": ["Developers", "開發者"],
   "footer.liveChat": ["Live Chat", "線上客服"],
+  "footer.support": ["Support", "支援"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "報告漏洞 / 功能"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "謝謝！您的報告已發送。"],
   "footer.bug.close": ["Close", "關閉"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "存入{ticker}"],
   "tx.leg.send": ["Send {ticker}", "發送{ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "以私密方式轉送 {ticker}"],
-  "tx.leg.swap": ["Swap {from} to {to}", "將{from}兌換為{to}"],
-  "footer.support": ["Support", "支援"]
+  "tx.leg.swap": ["Swap {from} to {to}", "將{from}兌換為{to}"]
 }

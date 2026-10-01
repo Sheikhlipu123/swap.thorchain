@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "Dành cho AI Agent"],
   "footer.developers": ["Developers", "Nhà phát triển"],
   "footer.liveChat": ["Live Chat", "Trò chuyện trực tiếp"],
+  "footer.support": ["Support", "Hỗ trợ"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Báo lỗi / Yêu cầu tính năng"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Cảm ơn bạn! Báo cáo của bạn đã được gửi."],
   "footer.bug.close": ["Close", "Đóng"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "Nạp {ticker}"],
   "tx.leg.send": ["Send {ticker}", "Gửi {ticker}"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "Định tuyến {ticker} riêng tư"],
-  "tx.leg.swap": ["Swap {from} to {to}", "Hoán đổi {from} sang {to}"],
-  "footer.support": ["Support", "Hỗ trợ"]
+  "tx.leg.swap": ["Swap {from} to {to}", "Hoán đổi {from} sang {to}"]
 }

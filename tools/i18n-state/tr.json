@@ -26,6 +26,7 @@
   "footer.forAgents": ["For AI Agents", "Yapay Zekâ Ajanları için"],
   "footer.developers": ["Developers", "Geliştiriciler"],
   "footer.liveChat": ["Live Chat", "Canlı Sohbet"],
+  "footer.support": ["Support", "Destek"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Hata / Özellik Bildir"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Teşekkürler! Bildirimin gönderildi."],
   "footer.bug.close": ["Close", "Kapat"],
@@ -514,6 +515,5 @@
   "tx.leg.deposit": ["Deposit {ticker}", "{ticker} Yatır"],
   "tx.leg.send": ["Send {ticker}", "{ticker} Gönder"],
   "tx.leg.privateRoute": ["Route {ticker} privately", "{ticker} gizli olarak yönlendir"],
-  "tx.leg.swap": ["Swap {from} to {to}", "{from} → {to} Takas"],
-  "footer.support": ["Support", "Destek"]
+  "tx.leg.swap": ["Swap {from} to {to}", "{from} → {to} Takas"]
 }
