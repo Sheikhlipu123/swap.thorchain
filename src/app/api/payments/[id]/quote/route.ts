@@ -7,7 +7,13 @@ const schema = z.object({ sourceAsset: z.string().trim().min(2).max(120), source
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const parsed = schema.safeParse(await request.json())
+  let body: unknown = {}
+  try {
+    body = await request.json()
+  } catch {
+    return NextResponse.json({ error: 'Invalid quote request' }, { status: 400 })
+  }
+  const parsed = schema.safeParse(body)
   if (!parsed.success) return NextResponse.json({ error: 'Invalid quote request' }, { status: 400 })
   const response = await fetch(new URL(`/api/payments/${id}`, request.url))
   const data = await response.json()

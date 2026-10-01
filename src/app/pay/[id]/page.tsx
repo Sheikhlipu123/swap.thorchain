@@ -19,17 +19,23 @@ export default function PayPage({ params }: { params: Promise<{ id: string }> })
 
   useEffect(() => {
     let active = true
+    const readJson = async (response: Response) => {
+      const text = await response.text()
+      if (!text) return {}
+      try { return JSON.parse(text) as Record<string, unknown> } catch { return {} }
+    }
     params.then(({ id }) => fetch(`/api/payments/${id}`).then(async response => {
-      const data = await response.json()
-      if (!response.ok || !data.payment) throw new Error(data.error ?? 'Payment not found')
+      const data = await readJson(response)
+      if (!response.ok || !data.payment) throw new Error(typeof data.error === 'string' ? data.error : 'Payment not found')
       if (!active) return
-      setPayment(data.payment)
-      if (data.payment.status !== 'expired') {
-        const quoteResponse = await fetch(`/api/payments/${id}/quote`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sourceAsset: 'BTC', sourceAmount: data.payment.amount }) })
-        const quoteData = await quoteResponse.json()
+      setPayment(data.payment as Payment)
+      if ((data.payment as Payment).status !== 'expired') {
+        const quoteResponse = await fetch(`/api/payments/${id}/quote`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sourceAsset: 'BTC', sourceAmount: (data.payment as Payment).amount }) })
+        const quoteData = await readJson(quoteResponse)
         if (active) {
-          setQuote(quoteData.quote)
+          setQuote(quoteData.quote as Quote | undefined)
           setQuoteStatus(quoteResponse.ok ? 'ready' : 'error')
+          if (!quoteResponse.ok && typeof quoteData.error === 'string') setError(quoteData.error)
         }
       }
     }).catch(reason => active && setError(reason instanceof Error ? reason.message : 'Payment not found')))
