@@ -21,7 +21,6 @@ export const contactMarkdown = `# Contact THORChain Swap
 ## Support
 
 - Email: ${AppConfig.supportEmail}
-- Discord: ${AppConfig.discordLink}
 - Telegram: ${AppConfig.telegramLink}
 - GitHub issues: https://github.com/thorchain/swap.thorchain/issues
 - Developer resources: ${AppConfig.baseUrl}/developers

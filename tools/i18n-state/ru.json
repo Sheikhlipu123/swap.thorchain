@@ -25,7 +25,6 @@
   "footer.reportBug": ["Report a Bug / Request a Feature", "Сообщить об ошибке / функции", "Сообщить об ошибке / Предложить функцию"],
   "footer.forAgents": ["For AI Agents", "Для ИИ-агентов"],
   "footer.developers": ["Developers", "Разработчикам"],
-  "footer.getSupport": ["Get Support in Discord", "Получить поддержку в Discord"],
   "footer.liveChat": ["Live Chat", "Онлайн-чат"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Сообщить об ошибке / функции", "Сообщить об ошибке / Предложить функцию"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Спасибо! Ваше сообщение отправлено."],

@@ -52,11 +52,6 @@ export default function ContactPage() {
                 </a>
               </li>
               <li>
-                <a className="underline" href={AppConfig.discordLink} rel="noopener noreferrer" target="_blank">
-                  THORChain community Discord
-                </a>
-              </li>
-              <li>
                 <a className="underline" href={AppConfig.telegramLink} rel="noopener noreferrer" target="_blank">
                   THORChain Telegram
                 </a>

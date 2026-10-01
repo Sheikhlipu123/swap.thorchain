@@ -25,7 +25,6 @@
   "footer.reportBug": ["Report a Bug / Request a Feature", "バグの報告／機能のリクエスト"],
   "footer.forAgents": ["For AI Agents", "AIエージェント向け"],
   "footer.developers": ["Developers", "開発者"],
-  "footer.getSupport": ["Get Support in Discord", "Discordでサポートを受ける"],
   "footer.liveChat": ["Live Chat", "ライブチャット"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "バグの報告／機能のリクエスト"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "ありがとうございます。報告が送信されました。"],

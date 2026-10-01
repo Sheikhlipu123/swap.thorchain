@@ -348,11 +348,6 @@ export default function DevelopersPage() {
               </a>
             </li>
             <li>
-              <a className="underline" href={AppConfig.discordLink} rel="noopener noreferrer" target="_blank">
-                THORChain community Discord
-              </a>
-            </li>
-            <li>
               Bug reports and feature requests: <code>POST /api/report-bug</code>
             </li>
           </ul>

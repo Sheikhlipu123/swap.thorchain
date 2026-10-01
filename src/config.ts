@@ -17,7 +17,6 @@ export const AppConfig = {
   pixelId: 'qki4a',
   pixelEvent: 'tw-qki4a-qop3i',
   affiliateLink: 'https://affiliate.thorchain.org',
-  discordLink: 'https://discord.com/invite/thorchaindevs',
   telegramLink: 'https://t.me/thorchain_org',
   privacyPolicyLink: 'https://www.thorchain.org/privacy-policy',
   tosLink: 'https://www.thorchain.org/terms-of-use',

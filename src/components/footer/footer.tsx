@@ -51,10 +51,6 @@ export function FooterContent({ className }: { className?: string }) {
           >
             {t('reportBug')}
           </button>
-          <Separator orientation="vertical" className="h-full" />
-          <a className="flex items-center gap-2 underline" href={AppConfig.discordLink} rel="noopener noreferrer" target="_blank">
-            {t('getSupport')} <Icon width={20} height={20} viewBox="0 0 20 20" name="discord" />
-          </a>
           {chatReady && (
             <>
               {/* Hides the floating bubble only where this button replaces it. */}

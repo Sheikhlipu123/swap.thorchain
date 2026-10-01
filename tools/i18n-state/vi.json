@@ -25,7 +25,6 @@
   "footer.reportBug": ["Report a Bug / Request a Feature", "Báo lỗi / Yêu cầu tính năng"],
   "footer.forAgents": ["For AI Agents", "Dành cho AI Agent"],
   "footer.developers": ["Developers", "Nhà phát triển"],
-  "footer.getSupport": ["Get Support in Discord", "Nhận hỗ trợ trên Discord"],
   "footer.liveChat": ["Live Chat", "Trò chuyện trực tiếp"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Báo lỗi / Yêu cầu tính năng"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Cảm ơn bạn! Báo cáo của bạn đã được gửi."],

@@ -25,7 +25,6 @@
   "footer.reportBug": ["Report a Bug / Request a Feature", "รายงานข้อบกพร่อง / ขอฟีเจอร์"],
   "footer.forAgents": ["For AI Agents", "สำหรับ AI Agent"],
   "footer.developers": ["Developers", "นักพัฒนา"],
-  "footer.getSupport": ["Get Support in Discord", "รับการสนับสนุนใน Discord"],
   "footer.liveChat": ["Live Chat", "แชทสด"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "รายงานข้อบกพร่อง / ขอฟีเจอร์"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "ขอบคุณ รายงานของคุณถูกส่งแล้ว"],

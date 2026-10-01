@@ -25,7 +25,6 @@
   "footer.reportBug": ["Report a Bug / Request a Feature", "Hata / Özellik Bildir"],
   "footer.forAgents": ["For AI Agents", "Yapay Zekâ Ajanları için"],
   "footer.developers": ["Developers", "Geliştiriciler"],
-  "footer.getSupport": ["Get Support in Discord", "Discord'da Destek Al"],
   "footer.liveChat": ["Live Chat", "Canlı Sohbet"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Hata / Özellik Bildir"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Teşekkürler! Bildirimin gönderildi."],

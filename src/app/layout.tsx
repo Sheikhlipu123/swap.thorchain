@@ -73,7 +73,7 @@ const structuredData = {
       name: 'THORChain',
       url: 'https://www.thorchain.org',
       logo: `${AppConfig.baseUrl}/logo.svg`,
-      sameAs: ['https://www.thorchain.org', 'https://x.com/THORChain', AppConfig.discordLink, AppConfig.telegramLink],
+      sameAs: ['https://www.thorchain.org', 'https://x.com/THORChain', AppConfig.telegramLink],
       contactPoint: {
         '@type': 'ContactPoint',
         email: AppConfig.supportEmail,

@@ -25,7 +25,6 @@
   "footer.reportBug": ["Report a Bug / Request a Feature", "Fehler melden / Funktion anfragen"],
   "footer.forAgents": ["For AI Agents", "Für KI-Agenten"],
   "footer.developers": ["Developers", "Entwickler"],
-  "footer.getSupport": ["Get Support in Discord", "Support in Discord erhalten"],
   "footer.liveChat": ["Live Chat", "Live-Chat"],
   "footer.bug.title": ["Report a Bug / Request a Feature", "Fehler melden / Funktion anfragen"],
   "footer.bug.success": ["Thank you! Your report has been sent.", "Vielen Dank! Ihre Meldung wurde gesendet."],

@@ -212,6 +212,5 @@ ${developerDiscoveryLinks.map(link => `- [${link.path}](${AppConfig.baseUrl}${li
 ## Support
 
 - Email: ${AppConfig.supportEmail}
-- Discord: ${AppConfig.discordLink}
 - Bug reports and feature requests: \`POST /api/report-bug\`
 `
